@@ -16,5 +16,9 @@
 ## Dynamic Partitions
 -include vendor/lineage/config/BoardConfigReservedSize.mk
 
+## Manifest
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
+    vendor/lineage/config/device_framework_matrix.xml
+
 ## SELinux
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy-lineage/vendor
