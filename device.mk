@@ -177,6 +177,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint-service.FP6
 
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/keylayout/ff_key.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/ff_key.kl
+
 # GPS
 PRODUCT_PACKAGES += \
     android.hardware.gnss-aidl-impl-qti \
