@@ -1,3 +1,6 @@
+# Audio
+/mnt/vendor/persist/factory/audio(/.*)?      u:object_r:vendor_persist_audio_file:s0
+
 # Camera
 /data/vendor/camera_dump(/.*)? u:object_r:vendor_camera_dump_file:s0
 
