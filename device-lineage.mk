@@ -15,3 +15,7 @@
 #
 
 DEVICE_PATH := device/fairphone/FP6
+
+# Overlays
+PRODUCT_PACKAGES += \
+    ApertureResFP6
