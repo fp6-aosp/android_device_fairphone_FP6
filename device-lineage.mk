@@ -16,6 +16,14 @@
 
 DEVICE_PATH := device/fairphone/FP6
 
+# Lineage Health
+$(call soong_config_set,lineage_health,charging_control_charging_path,/sys/class/qcom-battery/charge_disable)
+$(call soong_config_set,lineage_health,charging_control_charging_enabled,0)
+$(call soong_config_set,lineage_health,charging_control_charging_disabled,1)
+
+PRODUCT_PACKAGES += \
+    vendor.lineage.health-service.default
+
 # Overlays
 PRODUCT_PACKAGES += \
     FP6ApertureResTarget
