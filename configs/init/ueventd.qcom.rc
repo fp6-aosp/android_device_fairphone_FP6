@@ -613,3 +613,6 @@ subsystem mem_buf_vm
 
 # tap to wake
 /sys/devices/platform/soc/ac0000.qcom,qupv3_0_geni_se/a80000.spi/spi_master/spi0/spi0.0   gesture_wakeup    0660    system  system
+
+# Battery
+/sys/class/qcom-battery                                 charge_disable                  0660    system  system
