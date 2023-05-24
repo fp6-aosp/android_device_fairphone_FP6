@@ -51,7 +51,9 @@ BOARD_BOOTCONFIG := \
     androidboot.usbcontroller=a600000.dwc3 \
     androidboot.load_modules_parallel=true \
     androidboot.vendor.qspa=true \
-    androidboot.console=0
+    androidboot.console=0 \
+    androidboot.hypervisor.protected_vm.supported=true \
+    androidboot.hypervisor.version=gunyah
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_CMDLINE := \
     video=vfb:640x400,bpp=32,memsize=3072000 \
