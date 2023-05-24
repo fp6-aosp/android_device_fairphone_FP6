@@ -15,3 +15,6 @@ persist.vendor.dpm.feature=11
 
 ## RIL
 ril.subscription.types=NV,RUIM
+
+## Virtualization
+hypervisor.pvmfw.path=none
