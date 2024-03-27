@@ -6,3 +6,7 @@ import /vendor/etc/ueventd.qcom.rc
 # Battery
 /sys/class/qcom-battery                                 charge_disable                  0660    system  system
 /sys/class/qcom-battery                                 chgmod_fcc                      0660    system  system
+
+# Haptics class devices
+/sys/class/qcom-haptics    visense_enabled     0400    system    system
+/sys/class/qcom-haptics    primitive_duration  0600    system    system
