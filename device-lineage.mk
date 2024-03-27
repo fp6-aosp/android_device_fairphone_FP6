@@ -26,4 +26,5 @@ PRODUCT_PACKAGES += \
 
 # Overlays
 PRODUCT_PACKAGES += \
-    ApertureResFP6
+    ApertureResFP6 \
+    LineageSettingsResFP6
