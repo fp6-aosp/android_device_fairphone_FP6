@@ -238,7 +238,7 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/libqcodec2_core.so': blob_fixup()
         .add_needed('libshim_codec2.so'),
     'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
-        .add_needed('libhidlbase_shim.so'),
+        .add_needed('libshim_hidlbase.so'),
 
 }  # fmt: skip
 
