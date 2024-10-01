@@ -1,0 +1,16 @@
+//
+// Copyright (C) 2024 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_shared {
+    name: "libshim_codec2",
+    shared_libs: [
+        "libcodec2_vndk",
+    ],
+    srcs: [
+        "C2Fence.cpp",
+    ],
+    vendor: true,
+}
