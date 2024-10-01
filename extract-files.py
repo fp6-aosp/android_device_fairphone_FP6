@@ -235,6 +235,8 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('AHardwareBuffer_unlock'),
     'vendor/lib64/libqcodec2_core.so': blob_fixup()
         .add_needed('libshim_codec2.so'),
+    'vendor/lib64/libril-db.so': blob_fixup()
+        .binary_regex_replace(rb'persist\.vendor\.radio\.poweron_opt', rb'persist.vendor.radio.poweron_ign'),
     'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
         .add_needed('libshim_binder.so')
         .add_needed('libshim_hidlbase.so'),
