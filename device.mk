@@ -311,6 +311,7 @@ PRODUCT_PACKAGES += \
     SystemUIResFP6 \
     TelecommResFP6 \
     TelephonyResFP6 \
+    TetheringResFP6 \
     UwbResFP6 \
     WifiResFP6
 
