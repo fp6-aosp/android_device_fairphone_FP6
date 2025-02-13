@@ -326,6 +326,7 @@ PRODUCT_PACKAGES += \
 # Soong Namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(DEVICE_PATH) \
+    hardware/qcom-caf/thermal \
     hardware/qcom-caf/wlan \
     hardware/qcom/bootctrl \
     hardware/qcom/sm8650/audio/agm \
@@ -360,6 +361,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     telephony-ext
+
+# Thermal
+PRODUCT_PACKAGES += \
+    android.hardware.thermal-service.qti
 
 # USB
 PRODUCT_PACKAGES += \
