@@ -57,7 +57,8 @@ BOARD_BOOTCONFIG := \
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_CMDLINE := \
     nosoftlockup \
-    pstore.compress=none
+    pstore.compress=none \
+    sysctl.kernel.firmware_config.force_sysfs_fallback=1
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_INIT_BOOT_HEADER_VERSION := 4
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
