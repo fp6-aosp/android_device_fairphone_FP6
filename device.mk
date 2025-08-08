@@ -294,6 +294,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.memtrack-service
 
+# Moments switch
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/keylayout/fpv6_switch_key.kl:system/usr/keylayout/fpv6_switch_key.kl
+
 # Mountpoints
 PRODUCT_PACKAGES += \
     vendor_bt_firmware_mountpoint \
