@@ -176,7 +176,7 @@ TARGET_KERNEL_EXT_MODULES := \
     samsung_slsi/nfc/driver
 
 ## Manifest
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
     $(DEVICE_PATH)/device_framework_matrix.xml \
     hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml
 DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/device_framework_manifest.xml
