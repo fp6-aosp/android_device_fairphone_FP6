@@ -208,6 +208,7 @@ telephony.lteOnCdmaDevice=1
 
 ## Sensors
 persist.vendor.sensors.enable.mag_filter=true
+persist.vendor.sensors.support_direct_channel=false
 
 ## SoC
 ro.soc.manufacturer=QTI
