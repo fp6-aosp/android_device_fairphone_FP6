@@ -27,6 +27,12 @@ $(call soong_config_set,lineage_health,fast_charge_value_fast_charge,5800000)
 PRODUCT_PACKAGES += \
     vendor.lineage.health-service.default
 
+# Moments switch
+PRODUCT_PACKAGES += \
+    AlertSliderResFP6 \
+    KeyHandler \
+    LineageResAlertSlider
+
 # Overlays
 PRODUCT_PACKAGES += \
     ApertureResFP6 \
