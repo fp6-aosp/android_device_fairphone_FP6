@@ -31,6 +31,3 @@ telephony.lteOnCdmaDevice=1
 
 # System properties
 ro.product.property_source_order=odm,vendor,product,system_ext,system
-
-# WiFi display
-persist.debug.wfd.enable=1

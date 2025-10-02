@@ -43,7 +43,6 @@ lib_fixups: lib_fixups_user_type = {
         'vendor.qti.hardware.qccsyshal@1.0',
         'vendor.qti.hardware.qccsyshal@1.1',
         'vendor.qti.hardware.qccsyshal@1.2',
-        'vendor.qti.hardware.wifidisplaysession@1.0',
         'vendor.qti.ImsRtpService-V1-ndk',
         'vendor.qti.imsrtpservice@3.0',
         'vendor.qti.imsrtpservice@3.1',
@@ -92,15 +91,8 @@ def blob_fixup_sql_reorder(
 
 
 blob_fixups: blob_fixups_user_type = {
-    'system_ext/lib64/libwfdservice.so': blob_fixup()
-        .replace_needed(
-            'android.media.audio.common.types-V2-cpp.so',
-            'android.media.audio.common.types-V4-cpp.so',
-        ),
     'vendor/etc/init/tctd.rc': blob_fixup()
         .regex_replace('.+seclabel.+\n', ''),
-    'vendor/etc/seccomp_policy/wfdhdcphalservice.policy': blob_fixup()
-        .add_line_if_missing('rt_tgsigqueueinfo: 1'),
     'vendor/etc/qcril_database/upgrade/other/0000_initial_qcrilnr.sql': blob_fixup().
         call(blob_fixup_sql_reorder),
     (
