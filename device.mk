@@ -295,6 +295,20 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     vendor/qcom/opensource/power/config/volcano/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 
+# QCOM
+PRODUCT_SOONG_NAMESPACES += \
+    hardware/qcom-caf/bootctrl \
+    hardware/qcom-caf/sm8650 \
+    hardware/qcom-caf/sm8650/data-ipa-cfg-mgr \
+    hardware/qcom-caf/thermal \
+    hardware/qcom-caf/wlan \
+    hardware/qcom-caf/wlan/qcwcn \
+    vendor/qcom/opensource/audio-hal/st-hal-ar-legacy \
+    vendor/qcom/opensource/commonsys/display \
+    vendor/qcom/opensource/commonsys-intf/display \
+    vendor/qcom/opensource/dataservices \
+    vendor/qcom/opensource/usb/etc
+
 # QSPA
 PRODUCT_PACKAGES += \
     vendor.qti.qspa-service \
