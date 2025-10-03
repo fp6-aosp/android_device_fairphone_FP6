@@ -4,7 +4,6 @@
 # libmcs depends on libar-acdb, libagm, libats, liblx-osal which are gnu makefile targets
 # libqc2audio_hwaudiocodec depends on libpalclient, which is a gnu makefile target
 # libqtigefar depends on libar-pal, which is a gnu makefile target
-# libvui_intf depends on liblx-osal, which is a gnu makefile target
 
 # Init ### TODO sort or import to tree
 vendor/bin/init.qcom.coex.sh
@@ -100,7 +99,6 @@ vendor/lib64/libqtigefar.so;DISABLE_CHECKELF
 vendor/lib64/libtensorflowlite_c.so
 vendor/lib64/libvui_dmgr.so
 vendor/lib64/libvui_dmgr_client.so
-vendor/lib64/libvui_intf.so;DISABLE_CHECKELF
 vendor/lib64/soundfx/libasphere.so
 vendor/lib64/soundfx/libquasar.so
 vendor/lib64/soundfx/libshoebox.so

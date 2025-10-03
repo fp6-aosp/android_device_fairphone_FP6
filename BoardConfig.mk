@@ -70,8 +70,6 @@ BOARD_USES_QCOM_MERGE_DTBS_SCRIPT := true
 BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 4096
 
-TARGET_KERNEL_ADDITIONAL_FLAGS := TARGET_BOARD_PLATFORM=$(TARGET_BOARD_PLATFORM)
-
 TARGET_KERNEL_SOURCE := kernel/fairphone/sm7635
 TARGET_KERNEL_CONFIG := \
     gki_defconfig \
@@ -178,7 +176,7 @@ TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/properties/system_ext.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/properties/vendor.prop
 
 # QCOM
-BOARD_USES_QCOM_HARDWARE := true
+TARGET_USES_HARDWARE_QCOM_WLAN := false
 
 # Recovery
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
@@ -195,7 +193,7 @@ ENABLE_VENDOR_RIL_SERVICE := true
 VENDOR_SECURITY_PATCH := 2025-07-05
 
 # Sepolicy
-include device/qcom/sepolicy_vndr/SEPolicy.mk
+include device/qcom/sepolicy_vndr/sm8650/SEPolicy.mk
 
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
@@ -229,7 +227,7 @@ BOARD_AVB_INIT_BOOT_ROLLBACK_INDEX := $(STOCK_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_INIT_BOOT_ROLLBACK_INDEX_LOCATION := 4
 
 # VINTF
-DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix.xml
+DEVICE_MATRIX_FILE := hardware/qcom/common/compatibility_matrix.xml
 
 DEVICE_MANIFEST_SKUS := volcano
 DEVICE_MANIFEST_VOLCANO_FILES := \
@@ -237,7 +235,7 @@ DEVICE_MANIFEST_VOLCANO_FILES := \
 
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     $(DEVICE_PATH)/vintf/framework_compatibility_matrix.xml \
-    hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml
+    hardware/qcom/common/vendor_framework_compatibility_matrix.xml
 
 DEVICE_FRAMEWORK_MANIFEST_FILE += $(DEVICE_PATH)/vintf/framework_manifest.xml
 
@@ -260,3 +258,6 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit the proprietary files BoardConfig
 include vendor/fairphone/FP6/BoardConfigVendor.mk
+
+# Add common definitions for Qualcomm
+include hardware/qcom/common/BoardConfigQcom.mk
