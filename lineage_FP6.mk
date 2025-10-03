@@ -28,3 +28,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     DeviceProduct=FP6 \
     SystemDevice=FP6 \
     SystemName=FP6
+
+# Moments switch
+PRODUCT_PACKAGES += \
+    KeyHandler
