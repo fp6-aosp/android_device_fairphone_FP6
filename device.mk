@@ -229,6 +229,9 @@ PRODUCT_PACKAGES += \
     IPACM_cfg.xml \
     IPACM_Filter_cfg.xml
 
+# Kernel
+PRODUCT_VENDOR_KERNEL_HEADERS := $(LOCAL_PATH)/sm7635/kernel-headers
+
 # Media
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
