@@ -11,7 +11,6 @@ from extract_utils.fixups_blob import (
     blob_fixups_user_type,
 )
 from extract_utils.fixups_lib import (
-    lib_fixup_remove,
     lib_fixups,
     lib_fixups_user_type,
 )
@@ -24,6 +23,9 @@ namespace_imports = [
     'device/fairphone/FP6',
     'hardware/qcom-caf/wlan',
     'hardware/qcom/common',
+    'hardware/qcom/sm8650/audio/agm',
+    'hardware/qcom/sm8650/audio/graphservices',
+    'hardware/qcom/sm8650/audio/pal',
     'hardware/qcom/sm8650/display',
     'vendor/qcom/opensource/commonsys/display',
     'vendor/qcom/opensource/commonsys-intf/display',
@@ -49,14 +51,6 @@ lib_fixups: lib_fixups_user_type = {
         'vendor.qti.imsrtpservice@3.1',
         'vendor.qti.qccvndhal_aidl-V1-ndk',
     ): lib_fixup_vendor_suffix,
-    (
-        'libagm',
-        'libar-acdb',
-        'libar-pal',
-        'libats',
-        'liblx-osal',
-        'libpalclient',
-    ): lib_fixup_remove,
 }
 
 
