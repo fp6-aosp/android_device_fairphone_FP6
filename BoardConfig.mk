@@ -100,6 +100,10 @@ BOOT_KERNEL_MODULES := $(BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD)
 
 TARGET_KERNEL_EXT_MODULE_ROOT := kernel/fairphone/sm7635-modules
 TARGET_KERNEL_EXT_MODULES := \
+    fairphone/emkit \
+    fairphone/input/finger \
+    fairphone/input/misc/vl53L1 \
+    fairphone/misc/haptic_hv \
     qcom/opensource/mmrm-driver \
     qcom/opensource/mm-drivers/hw_fence \
     qcom/opensource/mm-drivers/msm_ext_display \
