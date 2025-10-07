@@ -91,6 +91,7 @@ gh_virt_wdt.ko
 gh_dbl.ko
 gh_msgq.ko
 gh_rm_drv.ko
+gh_mem_notifier.ko
 gunyah_loader.ko
 gunyah_qcom.ko
 qcom_llcc_pmu.ko
