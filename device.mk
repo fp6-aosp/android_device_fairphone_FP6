@@ -54,6 +54,9 @@ BOARD_SHIPPING_API_LEVEL := 34
 
 PRODUCT_GMS_CLIENTID_BASE := android-fairphone
 
+# Dynamic Partitions
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+
 # fastbootd
 PRODUCT_PACKAGES += \
     fastbootd
