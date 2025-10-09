@@ -109,6 +109,20 @@ PRODUCT_COPY_FILES += \
 # Kernel
 PRODUCT_ENABLE_UFFD_GC := true
 
+# Overlays
+PRODUCT_PACKAGES += \
+    CellBroadcastReceiverResCommon_Sys \
+    FrameworksResCommon_Sys \
+    FrameworksResTarget_Vendor \
+    SecureElementResTarget_Vendor \
+    SettingsResCommon_Sys \
+    SystemUIResCommon_Sys \
+    TelecommResCommon_Sys \
+    TelephonyResCommon_Sys \
+    UwbResCommon_Sys \
+    WifiResCommon_Sys \
+    WifiResTarget
+
 # Soong Namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(DEVICE_PATH)
