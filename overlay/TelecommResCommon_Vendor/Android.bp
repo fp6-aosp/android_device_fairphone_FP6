@@ -1,0 +1,4 @@
+runtime_resource_overlay {
+    name: "TelecommResCommon_Vendor",
+    vendor: true,
+}

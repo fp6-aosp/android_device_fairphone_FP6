@@ -111,16 +111,16 @@ PRODUCT_ENABLE_UFFD_GC := true
 
 # Overlays
 PRODUCT_PACKAGES += \
-    CellBroadcastReceiverResCommon_Sys \
-    FrameworksResCommon_Sys \
+    CellBroadcastReceiverResCommon_Vendor \
+    FrameworksResCommon_Vendor \
     FrameworksResTarget_Vendor \
     SecureElementResTarget_Vendor \
-    SettingsResCommon_Sys \
-    SystemUIResCommon_Sys \
-    TelecommResCommon_Sys \
-    TelephonyResCommon_Sys \
-    UwbResCommon_Sys \
-    WifiResCommon_Sys \
+    SettingsResCommon_Vendor \
+    SystemUIResCommon_Vendor \
+    TelecommResCommon_Vendor \
+    TelephonyResCommon_Vendor \
+    UwbResCommon_Vendor \
+    WifiResCommon_Vendor \
     WifiResTarget
 
 # Soong Namespaces
