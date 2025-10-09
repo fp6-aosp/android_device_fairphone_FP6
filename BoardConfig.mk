@@ -185,3 +185,6 @@ TARGET_BOOTLOADER_BOARD_NAME := fps
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/configs/init/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
+
+# Add common definitions for Qualcomm
+include hardware/qcom/common/BoardConfigQcom.mk
