@@ -60,6 +60,11 @@ AB_OTA_POSTINSTALL_CONFIG += \
     FILESYSTEM_TYPE_vendor=ext4 \
     POSTINSTALL_OPTIONAL_vendor=true
 
+# BootControl HAL
+PRODUCT_PACKAGES += \
+    android.hardware.boot-service.qti \
+    android.hardware.boot-service.qti.recovery
+
 # Device identifier, this must come after all inclusions
 PRODUCT_NAME := FP6
 PRODUCT_NAME_FOR_ATTESTATION := FP6
@@ -198,4 +203,5 @@ PRODUCT_COPY_FILES += \
 
 # Soong Namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(DEVICE_PATH)
+    $(DEVICE_PATH) \
+    hardware/qcom/bootctrl
