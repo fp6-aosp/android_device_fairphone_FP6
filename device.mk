@@ -37,6 +37,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 # Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 
+# Add common definitions for Qualcomm
+$(call inherit-product, hardware/qcom/common/common.mk)
+
 # A/B support
 PRODUCT_PACKAGES += \
     checkpoint_gc \
