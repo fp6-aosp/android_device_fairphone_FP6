@@ -216,4 +216,15 @@ PRODUCT_COPY_FILES += \
 # Soong Namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(DEVICE_PATH) \
-    hardware/qcom/bootctrl
+    hardware/qcom/bootctrl \
+    vendor/qcom/opensource/usb/etc
+
+# USB
+PRODUCT_PACKAGES += \
+    android.hardware.usb-service.qti \
+    android.hardware.usb.gadget-service.qti
+
+PRODUCT_PACKAGES += \
+    init.qcom.usb.rc \
+    init.qcom.usb.rc \
+    usb_compositions.conf
