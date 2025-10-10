@@ -34,6 +34,9 @@ PRODUCT_VIRTUAL_AB_COMPRESSION_METHOD := lz4
 # Enable project quotas and casefolding for emulated storage without sdcardfs
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
+# Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
+
 # A/B support
 PRODUCT_PACKAGES += \
     checkpoint_gc \

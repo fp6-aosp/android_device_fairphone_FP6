@@ -22,6 +22,8 @@ AB_OTA_PARTITIONS += \
     dtbo \
     init_boot \
     recovery \
+    vbmeta \
+    vbmeta_system \
     vendor_boot
 
 ## Architecture
@@ -186,8 +188,47 @@ BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/configs/init/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 
+## Security
+VENDOR_SECURITY_PATCH := 2025-07-05
+VENDOR_SECURITY_PATCH_TIMESTAMP := $(shell date -d 'TZ="GMT" $(VENDOR_SECURITY_PATCH)' +%s)
+
 ## SELinux
 include device/qcom/sepolicy_vndr/sm8650/SEPolicy.mk
+
+## Verified Boot
+BOARD_AVB_ENABLE := true
+ifneq ($(TARGET_AVB_ENABLE),true)
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
+endif
+BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
+
+# Enable chained vbmeta for boot images
+BOARD_AVB_BOOT_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
+BOARD_AVB_BOOT_ALGORITHM := SHA256_RSA4096
+BOARD_AVB_BOOT_ROLLBACK_INDEX := $(VENDOR_SECURITY_PATCH_TIMESTAMP)
+BOARD_AVB_BOOT_ROLLBACK_INDEX_LOCATION := 3
+
+# Enable chained vbmeta for init_boot images
+BOARD_AVB_INIT_BOOT_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
+BOARD_AVB_INIT_BOOT_ALGORITHM := SHA256_RSA4096
+BOARD_AVB_INIT_BOOT_ROLLBACK_INDEX := $(VENDOR_SECURITY_PATCH_TIMESTAMP)
+BOARD_AVB_INIT_BOOT_ROLLBACK_INDEX_LOCATION := 4
+
+# Enable chainged vbmeta for recovery
+BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
+BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA4096
+BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
+BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
+
+# Enable chain partition for system.
+BOARD_AVB_VBMETA_SYSTEM := product system system_ext
+BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
+BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA4096
+ifneq ($(TARGET_AVB_ENABLE),true)
+BOARD_AVB_MAKE_VBMETA_SYSTEM_IMAGE_ARGS += --flags 3
+endif
+BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(VENDOR_SECURITY_PATCH_TIMESTAMP)
+BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 2
 
 # Add common definitions for Qualcomm
 include hardware/qcom/common/BoardConfigQcom.mk
