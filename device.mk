@@ -88,6 +88,20 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_PACKAGES += \
     fastbootd
 
+# Graphics
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.mapper@4.0-impl-qti-display \
+    vendor.qti.hardware.display.allocator-service \
+    vendor.qti.hardware.display.composer-service \
+    vendor.qti.hardware.display.demura-service
+
+PRODUCT_PACKAGES += \
+    init.qti.display_boot.rc \
+    init.qti.display_boot.sh
+
+PRODUCT_COPY_FILES += \
+    hardware/qcom/sm8650/display/config/snapdragon_color_libs_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/snapdragon_color_libs_config.xml
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health-service.qti \
