@@ -40,6 +40,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 # Add common definitions for Qualcomm
 $(call inherit-product, hardware/qcom/common/common.mk)
 
+# Get non-open-source specific aspects
+$(call inherit-product, vendor/fairphone/FP6/FP6-vendor.mk)
+
 # A/B support
 PRODUCT_PACKAGES += \
     checkpoint_gc \

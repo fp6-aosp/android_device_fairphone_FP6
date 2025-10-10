@@ -233,3 +233,6 @@ BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 2
 
 # Add common definitions for Qualcomm
 include hardware/qcom/common/BoardConfigQcom.mk
+
+# Inherit proprietary vendor configuration
+include vendor/fairphone/FP6/BoardConfigVendor.mk
