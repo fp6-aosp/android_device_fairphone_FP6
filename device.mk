@@ -219,7 +219,15 @@ PRODUCT_COPY_FILES += \
 # Soong Namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(DEVICE_PATH) \
+    hardware/qcom-caf/wlan \
     hardware/qcom/bootctrl \
+    hardware/qcom/sm8650/audio/agm \
+    hardware/qcom/sm8650/audio/graphservices \
+    hardware/qcom/sm8650/audio/pal \
+    hardware/qcom/sm8650/display \
+    hardware/qcom/sm8650/gps \
+    vendor/qcom/opensource/commonsys-intf/display \
+    vendor/qcom/opensource/dataservices \
     vendor/qcom/opensource/usb/etc
 
 # USB
