@@ -217,6 +217,12 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/init/ueventd.qcom.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc \
     $(DEVICE_PATH)/configs/init/vendor_modprobe.sh:$(TARGET_COPY_OUT_VENDOR)/bin/vendor_modprobe.sh
 
+# IPACM
+PRODUCT_PACKAGES += \
+    ipacm \
+    IPACM_cfg.xml \
+    IPACM_Filter_cfg.xml
+
 # Kernel
 PRODUCT_ENABLE_UFFD_GC := true
 PRODUCT_VENDOR_KERNEL_HEADERS := $(DEVICE_PATH)/kernel-headers
@@ -311,6 +317,8 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/qcom/sm8650/audio/graphservices \
     hardware/qcom/sm8650/audio/pal \
     hardware/qcom/sm8650/audio/primary-hal \
+    hardware/qcom/sm8650/data-ipa-cfg-mgr \
+    hardware/qcom/sm8650/dataipa \
     hardware/qcom/sm8650/display \
     hardware/qcom/sm8650/gps \
     vendor/qcom/opensource/commonsys-intf/display \
