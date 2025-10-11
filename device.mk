@@ -260,3 +260,7 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.qcom.usb.rc \
     usb_compositions.conf
+
+# Vendor service manager
+PRODUCT_PACKAGES += \
+    vndservicemanager
