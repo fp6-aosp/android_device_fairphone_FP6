@@ -163,6 +163,13 @@ PRODUCT_COPY_FILES += \
 PRODUCT_ENABLE_UFFD_GC := true
 PRODUCT_VENDOR_KERNEL_HEADERS := $(DEVICE_PATH)/kernel-headers
 
+# Mountpoints
+PRODUCT_PACKAGES += \
+    vendor_bt_firmware_mountpoint \
+    vendor_dsp_mountpoint \
+    vendor_firmware_mnt_mountpoint \
+    vendor_vm-system_mountpoint
+
 # Overlays
 PRODUCT_PACKAGES += \
     CellBroadcastReceiverResCommon_Vendor \
