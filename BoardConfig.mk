@@ -200,6 +200,8 @@ VENDOR_SECURITY_PATCH_TIMESTAMP := $(shell date -d 'TZ="GMT" $(VENDOR_SECURITY_P
 ## SELinux
 include device/qcom/sepolicy_vndr/sm8650/SEPolicy.mk
 
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+
 ## Verified Boot
 BOARD_AVB_ENABLE := true
 ifneq ($(TARGET_AVB_ENABLE),true)
