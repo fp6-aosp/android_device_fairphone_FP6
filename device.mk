@@ -142,6 +142,10 @@ PRODUCT_SHIPPING_API_LEVEL := 35
 
 PRODUCT_GMS_CLIENTID_BASE := android-fairphone
 
+# DRM
+PRODUCT_PACKAGES += \
+    android.hardware.drm-service.clearkey
+
 # Dynamic Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
