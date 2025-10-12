@@ -610,3 +610,6 @@ subsystem mem_buf_vm
 
 #MMITest usb2
 /sys/devices/platform/soc/a600000.ssusb/a600000.dwc3/udc/a600000.dwc3/current_speed     0660   system     system
+
+# tap to wake
+/sys/devices/platform/soc/ac0000.qcom,qupv3_0_geni_se/a80000.spi/spi_master/spi0/spi0.0   gesture_wakeup    0660    system  system
