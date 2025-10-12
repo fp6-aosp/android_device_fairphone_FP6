@@ -165,7 +165,6 @@ on post-fs-data
     chown system system /sys/class/leds/aw_vibrator/activate_mode
     chown system system /sys/class/leds/aw_vibrator/gain
 
-
 on early-boot
     verity_update_state
 

@@ -311,6 +311,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml
 
 # Power
+$(call soong_config_set,qtipower,tap_to_wake_node,/sys/bus/spi/devices/spi0.0/gesture_wakeup)
+
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti
 
