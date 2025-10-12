@@ -153,6 +153,33 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_PACKAGES += \
     fastbootd
 
+# GPS
+PRODUCT_PACKAGES += \
+    android.hardware.gnss-aidl-impl-qti \
+    android.hardware.gnss-aidl-service-qti
+
+PRODUCT_PACKAGES += \
+    libbatching \
+    libgeofencing \
+    libgnss
+
+PRODUCT_PACKAGES += \
+    gnss@2.0-base.policy \
+    gnss@2.0-edgnss-daemon.policy \
+    gnss@2.0-qsap-location.policy \
+    gnss@2.0-xtra-daemon.policy
+
+PRODUCT_PACKAGES += \
+    batching.conf \
+    gnss_antenna_info.conf \
+    gps.conf
+
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/gps/apdr.conf:$(TARGET_COPY_OUT_VENDOR)/etc/apdr.conf \
+    $(DEVICE_PATH)/configs/gps/izat.conf:$(TARGET_COPY_OUT_VENDOR)/etc/izat.conf \
+    $(DEVICE_PATH)/configs/gps/lowi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/lowi.conf \
+    $(DEVICE_PATH)/configs/gps/sap.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sap.conf
+
 # Graphics
 PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
