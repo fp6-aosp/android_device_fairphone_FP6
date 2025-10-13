@@ -247,17 +247,15 @@ PRODUCT_PACKAGES += \
 
 # Overlays
 PRODUCT_PACKAGES += \
-    CellBroadcastReceiverResCommon_Vendor \
-    FrameworksResCommon_Vendor \
-    FrameworksResTarget_Vendor \
-    SecureElementResTarget_Vendor \
-    SettingsResCommon_Vendor \
-    SystemUIResCommon_Vendor \
-    TelecommResCommon_Vendor \
-    TelephonyResCommon_Vendor \
-    UwbResCommon_Vendor \
-    WifiResCommon_Vendor \
-    WifiResTarget
+    FP6CellBroadcastReceiverResTarget \
+    FP6FrameworksResTarget \
+    FP6SecureElementResTarget \
+    FP6SettingsResTarget \
+    FP6SystemUIResTarget \
+    FP6TelecommResTarget \
+    FP6TelephonyResTarget \
+    FP6UwbResTarget \
+    FP6WifiResTarget
 
 # Permissions
 PRODUCT_PACKAGES += \

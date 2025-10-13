@@ -1,0 +1,4 @@
+runtime_resource_overlay {
+    name: "FP6UwbResTarget",
+    vendor: true,
+}
