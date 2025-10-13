@@ -1,0 +1,4 @@
+runtime_resource_overlay {
+    name: "SettingsResFP6",
+    vendor: true,
+}
