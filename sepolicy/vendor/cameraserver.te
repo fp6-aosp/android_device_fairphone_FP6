@@ -1,2 +1,2 @@
 allow cameraserver vendor_tct_camera_algo_service:service_manager find;
-binder_call(cameraserver, hal_algoservice_default)
+binder_call(cameraserver, hal_camera_default)
