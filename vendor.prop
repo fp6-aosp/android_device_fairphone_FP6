@@ -6,7 +6,6 @@ af.fast_track_multiplier=1
 audio.deep_buffer.media=true
 audio.offload.min.duration.secs=30
 audio.offload.video=true
-media.stagefright.audio.deep=false
 ro.af.client_heap_size_kbyte=7168
 ro.audio.flinger_standbytime_ms=2000
 ro.audio.monitorRotation=true
@@ -32,10 +31,8 @@ vendor.qc2audio.suspend.enabled=true
 
 ## Bluetooth
 bluetooth.device.class_of_device=90,2,12
-bluetooth.device_id.vendor_id=0x001D
 bluetooth.hfp.codec_aptx_voice.enabled=true
 bluetooth.hfp.swb.aptx.power_management.enabled=true
-bluetooth.leaudio.dual_bidirection_swb.supported=true
 bluetooth.profile.a2dp.source.enabled=true
 bluetooth.profile.avrcp.controller.enabled=true
 bluetooth.profile.avrcp.target.enabled=true
@@ -60,10 +57,6 @@ bluetooth.profile.pbap.sim.enabled=true
 bluetooth.profile.sap.server.enabled=true
 bluetooth.profile.vcp.controller.enabled=true
 persist.bluetooth.a2dp_offload.disabled=false
-persist.bluetooth.leaudio.allow.multiple.context=false
-persist.bluetooth.leaudio.bypass_allow_list=true
-persist.bluetooth.leaudio.notify.idle.during.call=true
-persist.bluetooth.leaudio_offload.disabled=false
 persist.vendor.bluetooth.haltest=true
 persist.vendor.qcom.bluetooth.a2dp_mcast_test.enabled=false
 persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxhd-aac-ldac
@@ -78,10 +71,6 @@ vendor.hw.fm.init=0
 ## Camera
 camera.disable_zsl_mode=1
 persist.vendor.camera.fprom=1
-# Expose aux camera for below packages
-vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.fps.camera,com.fps.mtf,com.fps.verifytool,com.android.mmi
-# Add snapcam in privapp list
-persist.vendor.camera.privapp.list=org.codeaurora.snapcam,com.fps.camera,com.fps.mtf,com.fps.verifytool,com.android.mmi
 ro.camera.enableCamera1MaxZsl=1
 
 ## CNE
@@ -110,7 +99,6 @@ vendor.display.vds_allow_hwc=1
 vendor.gralloc.enable_logs=0
 
 ## DPM
-persist.vendor.dpm.feature=11
 persist.vendor.dpm.vndr.feature=11
 persist.vendor.dpm.vndr.halservice.enable=1
 persist.vendor.dpm.vndr.idletimer.mode=default
@@ -119,7 +107,6 @@ persist.vendor.dpm.vndr.idletimer.mode=default
 drm.service.enabled=true
 
 ## eSIM
-masterclear.allow_retain_esim_profiles_after_fdr=1
 persist.vendor.esim_os_update_agent=1
 persist.vendor.esim_os_update_name=DeployProd_12A_CSCXNJECISM4_C02212A_V611_ROM.itlc
 
@@ -182,8 +169,7 @@ debug.stagefright.c2inputsurface=-1
 debug.stagefright.ccodec=4
 debug.stagefright.omx_default_rank=0
 media.stagefright.thumbnail.prefer_hw_codecs=true
-ro.media.recorder-max-base-layer-fps=60
-media.settings.xml=/vendor/etc/media_profiles_volcano_v1.xml
+ro.media.xml_variant.profiles=_volcano_v1
 
 ## Metadata Encryption
 ro.crypto.metadata_init_delete_all_keys.enabled=true
