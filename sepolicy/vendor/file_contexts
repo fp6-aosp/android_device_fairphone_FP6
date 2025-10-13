@@ -1,2 +1,14 @@
+# Common
+/dev/block/platform/soc/1d84000.ufshc/by-name/traceability      u:object_r:vendor_traceability_block_device:s0
+/dev/block/platform/soc/1d84000.ufshc/by-name/study             u:object_r:vendor_modem_efs_partition_device:s0
+/dev/block/platform/soc/1d84000.ufshc/by-name/studybk_a         u:object_r:vendor_custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000.ufshc/by-name/studybk_b         u:object_r:vendor_custom_ab_block_device:s0
+
+/mnt/vendor/persist/trace_info(/.*)?                    u:object_r:vendor_persist_trace_param_file:s0
+
 # Power
 /(vendor|system/vendor)/bin/hw/android\.hardware\.power-service-qti               u:object_r:hal_power_default_exec:s0
+
+# tctd
+/dev/socket/tctd                u:object_r:tctd_socket:s0
+/vendor/bin/tctd                u:object_r:tctd_exec:s0
