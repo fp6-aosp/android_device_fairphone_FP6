@@ -129,6 +129,10 @@ PRODUCT_PACKAGES += \
     android.hardware.boot-service.qti \
     android.hardware.boot-service.qti.recovery
 
+# Charger
+PRODUCT_PACKAGES += \
+    charger_res_images_vendor
+
 # Device identifier, this must come after all inclusions
 PRODUCT_NAME := FP6
 PRODUCT_NAME_FOR_ATTESTATION := FP6
