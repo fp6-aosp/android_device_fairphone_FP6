@@ -289,6 +289,7 @@ PRODUCT_PACKAGES += \
     FP6CellBroadcastReceiverResTarget \
     FP6FrameworksResTarget \
     FP6SecureElementResTarget \
+    FP6SettingsProviderResTarget \
     FP6SettingsResTarget \
     FP6SystemUIResTarget \
     FP6TelecommResTarget \
