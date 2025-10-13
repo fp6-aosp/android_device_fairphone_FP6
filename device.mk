@@ -289,6 +289,7 @@ PRODUCT_PACKAGES += \
     CellBroadcastReceiverResFP6 \
     FrameworksResFP6 \
     SecureElementResFP6 \
+    SettingsProviderResFP6 \
     SettingsResFP6 \
     SystemUIResFP6 \
     TelecommResFP6 \
