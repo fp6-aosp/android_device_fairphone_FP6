@@ -64,5 +64,12 @@
 /dev/socket/tctd                u:object_r:tctd_socket:s0
 /vendor/bin/tctd                u:object_r:tctd_exec:s0
 
+# Touchscreen
+/sys/bus/spi/drivers/eswin_eph861x(/.*)?                                                                                u:object_r:fp_mmitest_sysfs:s0
+/sys/devices/platform/soc/ac0000.qcom,qupv3_0_geni_se/a80000.spi/spi_master/spi0/spi0.0(/.*)?                           u:object_r:fp_mmitest_sysfs:s0
+/sys/devices/platform/soc/ac0000.qcom,qupv3_0_geni_se/a80000.spi/spi_master/spi0/spi0.0/fw_version                      u:object_r:fp_mmitest_sysfs:s0
+/sys/devices/platform/soc/ac0000.qcom,qupv3_0_geni_se/a80000.spi/spi_master/spi0/spi0.0/wakeup(/.*)?                    u:object_r:sysfs_wakeup:s0
+/sys/devices/platform/soc/ac0000.qcom,qupv3_0_geni_se/a80000.spi/spi_master/spi0/spi0.0/write_device_message            u:object_r:fp_mmitest_sysfs:s0
+
 # WiFi
 /vendor/bin/setwlanmac.sh                  u:object_r:vendor_wlan_mac_exec:s0
