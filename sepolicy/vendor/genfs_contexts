@@ -1,0 +1,2 @@
+# emkit
+genfscon sysfs /emkit/info                           u:object_r:vendor_sysfs_info:s0
