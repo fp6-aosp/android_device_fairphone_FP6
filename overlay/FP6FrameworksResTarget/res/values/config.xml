@@ -666,8 +666,8 @@
     <bool name="config_useDevInputEventForAudioJack">true</bool>
 
     <!-- Needed for Rounded corner (RC) enablement. -->
-    <dimen name="rounded_corner_radius">20dp</dimen>
-    <dimen name="rounded_corner_content_padding">0dp</dimen>
+    <dimen name="rounded_corner_radius">60px</dimen>
+    <dimen name="rounded_corner_content_padding">32px</dimen>
 
     <!-- A string config in svg path format for the main display shape.
          The below shape takes into account rounded corners of radius 20dp. -->
