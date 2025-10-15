@@ -157,6 +157,10 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_PACKAGES += \
     fastbootd
 
+# Fingerprint
+PRODUCT_PACKAGES += \
+    android.hardware.biometrics.fingerprint-service.FP6
+
 # GPS
 PRODUCT_PACKAGES += \
     android.hardware.gnss-aidl-impl-qti \

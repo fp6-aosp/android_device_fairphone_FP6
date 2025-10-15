@@ -110,6 +110,10 @@ drm.service.enabled=true
 persist.vendor.esim_os_update_agent=1
 persist.vendor.esim_os_update_name=DeployProd_12A_CSCXNJECISM4_C02212A_V611_ROM.itlc
 
+## Fingerprint
+persist.vendor.fingerprint.type=side
+persist.vendor.fingerprint.sensor_location=1116|980|210|local:4630946639017191810
+
 ## FRP
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
