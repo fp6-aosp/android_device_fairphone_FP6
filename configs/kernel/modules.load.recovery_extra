@@ -179,3 +179,4 @@ msm_ext_display.ko
 sync_fence.ko
 msm_hw_fence.ko
 msm-mmrm.ko
+eswin_ts.ko
