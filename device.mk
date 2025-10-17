@@ -382,6 +382,7 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/qcom/sm8650/audio/graphservices \
     hardware/qcom/sm8650/audio/pal \
     hardware/qcom/sm8650/audio/primary-hal \
+    hardware/qcom/sm8650/audio/st-hal \
     hardware/qcom/sm8650/data-ipa-cfg-mgr \
     hardware/qcom/sm8650/dataipa \
     hardware/qcom/sm8650/display \
