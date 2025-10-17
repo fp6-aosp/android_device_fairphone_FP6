@@ -14,6 +14,11 @@
 # limitations under the License.
 #
 
-PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/FP6.mk \
-    $(LOCAL_DIR)/lineage_FP6.mk
+# Inherit from FP6 device
+$(call inherit-product, $(LOCAL_PATH)/device.mk)
+
+# Inherit some common Lineage stuff
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+
+# Device identifier, this must come after all inclusions
+PRODUCT_NAME := lineage_FP6
