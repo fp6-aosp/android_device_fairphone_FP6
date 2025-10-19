@@ -4,12 +4,6 @@ persist.bluetooth.leaudio.allow.multiple.context=false
 persist.bluetooth.leaudio.bypass_allow_list=true
 persist.bluetooth.leaudio.notify.idle.during.call=true
 
-## Camera
-# Expose aux camera for below packages
-vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.fps.camera,com.fps.mtf,com.fps.verifytool,com.android.mmi
-# Add snapcam in privapp list
-persist.vendor.camera.privapp.list=org.codeaurora.snapcam,com.fps.camera,com.fps.mtf,com.fps.verifytool,com.android.mmi
-
 ## DPM
 persist.vendor.dpm.feature=11
 
