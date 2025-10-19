@@ -317,6 +317,25 @@ on property:odm.charge_speed_limit=0
 on property:odm.charge_speed_limit=1
     write /sys/class/qcom-battery/display_fcc 6000000
 
+# FPS-2457 CE/FCC wifi parameters
+on property:persist.odm.ccode=fcc
+    wait /sys/kernel/fps_reg
+    chown system wifi /sys/kernel/fps_reg/bdf_name
+    chown system wifi /sys/kernel/fps_reg/is_fcc
+    write /sys/kernel/fps_reg/is_fcc 1
+	
+on property:persist.odm.ccode=eu
+    wait /sys/kernel/fps_reg
+    chown system wifi /sys/kernel/fps_reg/bdf_name
+    chown system wifi /sys/kernel/fps_reg/is_fcc
+    write /sys/kernel/fps_reg/is_fcc 0
+	
+on property:persist.odm.ccode=other
+    wait /sys/kernel/fps_reg
+    chown system wifi /sys/kernel/fps_reg/bdf_name
+    chown system wifi /sys/kernel/fps_reg/is_fcc
+    write /sys/kernel/fps_reg/is_fcc 0
+	
 service vendor.cnss_diag /system/vendor/bin/cnss_diag -q -f -t HELIUM
    class main
    user system
