@@ -50,6 +50,10 @@ class CameraProvider : public BnCameraProvider {
     ndk::ScopedAStatus isConcurrentStreamCombinationSupported(
             const std::vector<CameraIdAndStreamCombination>& in_configs,
             bool* _aidl_return) override;
+
+  protected:
+    // Reserved space for unknown private fields
+    void* reserved[64];
 };
 
 } // namespace implementation
