@@ -14,12 +14,4 @@
 # limitations under the License.
 #
 
-# Inherit from FP6 device
-$(call inherit-product, $(LOCAL_PATH)/device.mk)
-$(call inherit-product, $(LOCAL_PATH)/device-lineage.mk)
-
-# Inherit some common Lineage stuff
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
-
-# Device identifier, this must come after all inclusions
-PRODUCT_NAME := lineage_FP6
+DEVICE_PATH := device/fairphone/FP6
