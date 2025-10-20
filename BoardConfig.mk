@@ -266,3 +266,8 @@ include hardware/qcom/common/BoardConfigQcom.mk
 
 # Inherit proprietary vendor configuration
 include vendor/fairphone/FP6/BoardConfigVendor.mk
+
+# Inherit Lineage configuration
+ifneq ($(LINEAGE_BUILD),)
+include $(DEVICE_PATH)/BoardConfigLineage.mk
+endif
