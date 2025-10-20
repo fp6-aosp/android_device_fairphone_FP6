@@ -23,6 +23,7 @@ namespace provider {
 namespace implementation {
 
 class QTICameraProvider : public CameraProvider {
+    ndk::ScopedAStatus getCameraIdList(std::vector<std::string>* _aidl_return) override;
 };
 
 } // namespace implementation
