@@ -112,7 +112,6 @@ vendor/lib64/vendor.qti.hardware.cacert@1.0.so
 
 # Camera
 vendor/bin/hw/cameraalgoservice
-vendor/bin/hw/vendor.qti.camera.provider-service_64
 vendor/etc/camera/AncRawAlgos/cache_front_main
 vendor/etc/camera/AncRawAlgos/cache_raw_sr
 vendor/etc/camera/AncRawAlgos/cache_rear_main
@@ -215,11 +214,9 @@ vendor/etc/camera/svq_cache
 vendor/etc/camera/tclbokeh_golden.bin
 vendor/etc/camera/tuningversion_fps.txt
 vendor/etc/init/algoservice-default.rc
-vendor/etc/init/vendor.qti.camera.provider-service_64.rc
 vendor/etc/vintf/manifest/algoservice-default.xml
 vendor/etc/vintf/manifest/vendor.qti.camera.offlinecamera-impl.xml
 vendor/etc/vintf/manifest/vendor.qti.camera.postproc-impl.xml
-vendor/etc/vintf/manifest/vendor.qti.camera.provider.xml
 vendor/lib64/bm4d68v02s12n52.bin
 vendor/lib64/bm4d68v02s12n53.bin
 vendor/lib64/bm4d68v02s12n63.bin
