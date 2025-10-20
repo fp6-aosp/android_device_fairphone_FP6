@@ -15,3 +15,6 @@
 
 ## Dynamic Partitions
 -include vendor/lineage/config/BoardConfigReservedSize.mk
+
+## SELinux
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy-lineage/vendor
