@@ -1,4 +1,7 @@
 soong_namespace {
+    imports: [
+        "vendor/fairphone/FP6",
+    ],
 }
 
 install_symlink {

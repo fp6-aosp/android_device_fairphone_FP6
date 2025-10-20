@@ -129,6 +129,10 @@ PRODUCT_PACKAGES += \
     android.hardware.boot-service.qti \
     android.hardware.boot-service.qti.recovery
 
+# Camera
+PRODUCT_PACKAGES += \
+    vendor.qti.camera.provider-service_64
+
 # Charger
 PRODUCT_PACKAGES += \
     charger_res_images_vendor

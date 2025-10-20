@@ -1,0 +1,35 @@
+//
+// Copyright (C) 2025 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_binary {
+    name: "vendor.qti.camera.provider-service_64",
+    init_rc: ["vendor.qti.camera.provider-service_64.rc"],
+    vintf_fragments: ["vendor.qti.camera.provider.xml"],
+    vendor: true,
+    relative_install_path: "hw",
+    srcs: [
+        "service.cpp",
+        "QTICameraProvider.cpp",
+    ],
+    shared_libs: [
+        "android.hardware.camera.common-V1-ndk",
+        "android.hardware.camera.device-V2-ndk",
+        "android.hardware.camera.provider-V2-ndk",
+        "camx.device-impl",
+        "camx.provider-impl",
+        "libbinder_ndk",
+        "libcamera_metadata",
+        "libcutils",
+        "libfmq",
+        "libhardware",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+    ],
+    static_libs: [
+        "libaidlcommonsupport",
+    ],
+}
