@@ -16,11 +16,27 @@
 
 #define LOG_TAG "QTICamPrvdr"
 
+#include "QTICameraProvider.h"
+
 namespace android {
 namespace hardware {
 namespace camera {
 namespace provider {
 namespace implementation {
+
+ndk::ScopedAStatus QTICameraProvider::getCameraIdList(std::vector<std::string>* _aidl_return) {
+    if (_aidl_return == nullptr) {
+        return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
+    }
+
+    ndk::ScopedAStatus status = CameraProvider::getCameraIdList(_aidl_return);
+
+    if (status.isOk()) {
+        _aidl_return->resize(3);
+    }
+
+    return status;
+}
 
 } // namespace implementation
 } // namespace provider
