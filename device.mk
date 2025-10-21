@@ -157,6 +157,15 @@ PRODUCT_PACKAGES += \
 # Dynamic Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
+# eSIM
+ifneq ($(wildcard packages/apps/OpenEUICC),)
+PRODUCT_PACKAGES += \
+    OpenEUICC
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.telephony.euicc.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/android.hardware.telephony.euicc.xml
+endif
+
 # fastbootd
 PRODUCT_PACKAGES += \
     fastbootd
