@@ -177,10 +177,10 @@ TARGET_KERNEL_EXT_MODULES := \
 ## Manifest
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     $(DEVICE_PATH)/device_framework_matrix.xml \
-    hardware/qcom/common/vendor_framework_compatibility_matrix.xml
+    hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml
 DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/device_framework_manifest.xml
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
-DEVICE_MATRIX_FILE := hardware/qcom/common/compatibility_matrix.xml
+DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix.xml
 
 ## Partitions
 BOARD_FLASH_BLOCK_SIZE := $(shell echo $$(( $(BOARD_KERNEL_PAGESIZE) * 64 )))
@@ -262,7 +262,7 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Add common definitions for Qualcomm
-include hardware/qcom/common/BoardConfigQcom.mk
+include hardware/qcom-caf/common/BoardConfigQcom.mk
 
 # Inherit proprietary vendor configuration
 include vendor/fairphone/FP6/BoardConfigVendor.mk
