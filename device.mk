@@ -38,7 +38,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 
 # Add common definitions for Qualcomm
-$(call inherit-product, hardware/qcom/common/common.mk)
+$(call inherit-product, hardware/qcom-caf/common/common.mk)
 
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/fairphone/FP6/FP6-vendor.mk)
@@ -107,17 +107,17 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/audio/resourcemanager_volcano_mtp.xml:$(CONFIG_SKU_OUT_DIR)/resourcemanager_volcano_mtp.xml \
     $(DEVICE_PATH)/configs/audio/usecaseKvManager.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usecaseKvManager.xml
 
-CONFIG_HAL_SRC_DIR := hardware/qcom/sm8650/audio/primary-hal/configs/volcano
-CONFIG_PAL_SRC_DIR := hardware/qcom/sm8650/audio/pal/configs/volcano
+CONFIG_HAL_SRC_DIR := hardware/qcom-caf/sm8650/audio/primary-hal/configs/volcano
+CONFIG_PAL_SRC_DIR := hardware/qcom-caf/sm8650/audio/pal/configs/volcano
 
 PRODUCT_COPY_FILES += \
     $(CONFIG_HAL_SRC_DIR)/audio_effects.xml:$(CONFIG_SKU_OUT_DIR)/audio_effects.xml \
     $(CONFIG_HAL_SRC_DIR)/microphone_characteristics.xml:$(TARGET_COPY_OUT_VENDOR)/etc/microphone_characteristics.xml \
     $(CONFIG_PAL_SRC_DIR)/card-defs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/card-defs.xml \
-    hardware/qcom/sm8650/audio/primary-hal/configs/common/media_codecs_vendor_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor_audio.xml \
-    hardware/qcom/sm8650/audio/primary-hal/configs/common/codec2/service/1.0/c2audio.vendor.base-arm64.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/c2audio.vendor.base-arm64.policy \
-    hardware/qcom/sm8650/audio/primary-hal/configs/common/codec2/service/1.0/c2audio.vendor.ext-arm64.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/c2audio.vendor.ext-arm64.policy \
-    hardware/qcom/sm8650/audio/primary-hal/configs/common/codec2/media_codecs_c2_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_c2_audio.xml
+    hardware/qcom-caf/sm8650/audio/primary-hal/configs/common/media_codecs_vendor_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor_audio.xml \
+    hardware/qcom-caf/sm8650/audio/primary-hal/configs/common/codec2/service/1.0/c2audio.vendor.base-arm64.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/c2audio.vendor.base-arm64.policy \
+    hardware/qcom-caf/sm8650/audio/primary-hal/configs/common/codec2/service/1.0/c2audio.vendor.ext-arm64.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/c2audio.vendor.ext-arm64.policy \
+    hardware/qcom-caf/sm8650/audio/primary-hal/configs/common/codec2/media_codecs_c2_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_c2_audio.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
@@ -213,7 +213,7 @@ PRODUCT_PACKAGES += \
     init.qti.display_boot.sh
 
 PRODUCT_COPY_FILES += \
-    hardware/qcom/sm8650/display/config/snapdragon_color_libs_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/snapdragon_color_libs_config.xml
+    hardware/qcom-caf/sm8650/display/config/snapdragon_color_libs_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/snapdragon_color_libs_config.xml
 
 # Health
 PRODUCT_PACKAGES += \
@@ -389,20 +389,6 @@ PRODUCT_PACKAGES += \
 # Soong Namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(DEVICE_PATH) \
-    hardware/qcom-caf/thermal \
-    hardware/qcom-caf/wlan \
-    hardware/qcom/bootctrl \
-    hardware/qcom/sm8650/audio/agm \
-    hardware/qcom/sm8650/audio/graphservices \
-    hardware/qcom/sm8650/audio/pal \
-    hardware/qcom/sm8650/audio/primary-hal \
-    hardware/qcom/sm8650/audio/st-hal \
-    hardware/qcom/sm8650/data-ipa-cfg-mgr \
-    hardware/qcom/sm8650/dataipa \
-    hardware/qcom/sm8650/display \
-    hardware/qcom/sm8650/gps \
-    vendor/qcom/opensource/commonsys-intf/display \
-    vendor/qcom/opensource/dataservices \
     vendor/qcom/opensource/usb/etc
 
 # Telephony
@@ -470,3 +456,6 @@ PRODUCT_PACKAGES += \
     firmware_qca6750_WCNSS_qcom_cfg.ini_symlink \
     firmware_qca6750_wlan_mac.bin_symlink \
     firmware_wlanmdsp.otaupdate_symlink
+
+PRODUCT_CFI_INCLUDE_PATHS += \
+    hardware/qcom-caf/wlan/qcwcn/wpa_supplicant_8_lib

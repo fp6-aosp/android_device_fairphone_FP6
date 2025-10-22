@@ -21,12 +21,8 @@ from extract_utils.main import (
 
 namespace_imports = [
     'device/fairphone/FP6',
+    'hardware/qcom-caf/sm8650',
     'hardware/qcom-caf/wlan',
-    'hardware/qcom/sm8650/audio/agm',
-    'hardware/qcom/sm8650/audio/graphservices',
-    'hardware/qcom/sm8650/audio/pal',
-    'hardware/qcom/sm8650/display',
-    'hardware/qcom/sm8650/gps',
     'vendor/qcom/opensource/commonsys-intf/display',
     'vendor/qcom/opensource/dataservices',
 ]
