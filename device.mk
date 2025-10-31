@@ -386,6 +386,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.sensors-service.multihal
 
+PRODUCT_PACKAGES += \
+    sensors.dynamic_sensor_hal
+
 # Soong Namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(DEVICE_PATH) \
