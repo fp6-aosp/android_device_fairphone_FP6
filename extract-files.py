@@ -85,8 +85,6 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/libqcc_sdk.so',
     ) : blob_fixup()
         .add_needed('libshim_binder.so'),
-    'vendor/etc/init/tctd.rc': blob_fixup()
-        .regex_replace('.+seclabel.+\n', ''),
     'vendor/etc/qcril_database/upgrade/other/0000_initial_qcrilnr.sql': blob_fixup().
         call(blob_fixup_sql_reorder),
     (

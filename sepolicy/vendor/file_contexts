@@ -62,10 +62,6 @@
 # Power
 /(vendor|system/vendor)/bin/hw/android\.hardware\.power-service-qti               u:object_r:hal_power_default_exec:s0
 
-# tctd
-/dev/socket/tctd                u:object_r:tctd_socket:s0
-/vendor/bin/tctd                u:object_r:tctd_exec:s0
-
 # Touchscreen
 /sys/bus/spi/drivers/eswin_eph861x(/.*)?                                                                                u:object_r:fp_mmitest_sysfs:s0
 /sys/devices/platform/soc/ac0000.qcom,qupv3_0_geni_se/a80000.spi/spi_master/spi0/spi0.0(/.*)?                           u:object_r:fp_mmitest_sysfs:s0

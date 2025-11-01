@@ -66,6 +66,7 @@ persist.vendor.qcom.bluetooth.scram.enabled=false
 persist.vendor.qcom.bluetooth.twsp_state.enabled=false
 ro.bluetooth.a2dp_offload.supported=true
 ro.bluetooth.leaudio_offload.supported=true
+ro.vendor.bt.bdaddr_path=/mnt/vendor/persist/trace_info/bt_macaddr
 vendor.hw.fm.init=0
 
 ## Camera

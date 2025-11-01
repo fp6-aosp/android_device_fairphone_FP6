@@ -1520,7 +1520,3 @@ vendor/lib64/libtrustedapploader.so
 # WiFi
 vendor/bin/cnss-daemon
 vendor/etc/init/init.vendor.wlan.rc
-
-# WiFi mac address
-vendor/bin/tctd
-vendor/etc/init/tctd.rc

@@ -10,6 +10,3 @@ type vendor_sysfs_info, fs_type, sysfs_type;
 
 # MMITest
 type fp_mmitest_sysfs, fs_type, sysfs_type;
-
-# tctd
-type tctd_socket, file_type, mlstrustedobject;

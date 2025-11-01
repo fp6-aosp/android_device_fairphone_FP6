@@ -1,4 +1,5 @@
 #!/vendor/bin/sh
+wlan_mac_trace_info_path=/mnt/vendor/persist/trace_info/wlan_macaddr
 wlan_mac_path=/mnt/vendor/persist/qca6750/wlan_mac.bin
 wlan_dir=/mnt/vendor/persist/qca6750
 
@@ -7,7 +8,7 @@ if [ ! -d "$wlan_dir" ]; then
    mkdir -p "$wlan_dir"
 fi
 
-wifi_mac=`getprop ro.vendor.trace.wifimac`
+wifi_mac=$(cat "$wlan_mac_trace_info_path")
 wlan_mac=$(echo "$wifi_mac" | tr -d ':')
 echo "WLAN MAC from traceability partition:$wlan_mac"
 
