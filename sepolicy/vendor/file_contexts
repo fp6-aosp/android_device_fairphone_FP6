@@ -54,6 +54,9 @@
 
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint-service\.FP6 u:object_r:hal_fingerprint_default_exec:s0
 
+# hall
+/sys/devices/virtual/hall_switch/soc:hall_1/hall_status            u:object_r:fp_mmitest_sysfs:s0
+
 # NFC
 /(vendor|system/vendor)/bin/hw/android\.hardware\.nfc-service\.sec         u:object_r:hal_nfc_default_exec:s0
 
