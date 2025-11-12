@@ -294,10 +294,10 @@ on property:persist.odm.screen_mode=1
 on property:persist.odm.screen_mode=2
     write /sys/bus/spi/devices/spi0.0/edge_suppresion 1
 
-#on property:sys.boot_completed=1 && property:persist.odm.touch_sensitivity=0
-#    write sys/bus/spi/devices/spi0.0/glove_mode 0
-#on property:sys.boot_completed=1 && property:persist.odm.touch_sensitivity=1
-#    write sys/bus/spi/devices/spi0.0/glove_mode 1
+on property:sys.boot_completed=1 && property:persist.odm.touch_sensitivity=0
+    write sys/bus/spi/devices/spi0.0/glove_mode 0
+on property:sys.boot_completed=1 && property:persist.odm.touch_sensitivity=1
+    write sys/bus/spi/devices/spi0.0/glove_mode 1
 
 on property:sys.boot_completed=1 && property:persist.odm.charge_mode=0
     write /sys/class/qcom-battery/chgmod_fcc 6000000
