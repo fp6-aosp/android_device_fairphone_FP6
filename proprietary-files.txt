@@ -1,4 +1,4 @@
-# All unpinned blobs below are extracted from FP6.QREL.15.148.0.20250913182929_VS1O-factory.zip
+# All unpinned blobs below are extracted from FP6.QREL.15.151.0.20251011181017_VS1P-factory.zip
 
 # ACDB
 vendor/etc/acdbdata/adsp_avs_config.acdb
