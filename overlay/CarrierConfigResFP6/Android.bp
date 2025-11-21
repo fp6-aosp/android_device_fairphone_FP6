@@ -1,0 +1,4 @@
+runtime_resource_overlay {
+    name: "CarrierConfigResFP6",
+    vendor: true,
+}

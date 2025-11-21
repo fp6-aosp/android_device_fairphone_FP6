@@ -302,6 +302,7 @@ PRODUCT_PACKAGES += \
 
 # Overlays
 PRODUCT_PACKAGES += \
+    CarrierConfigResFP6 \
     CellBroadcastReceiverResFP6 \
     FrameworksResFP6 \
     SecureElementResFP6 \
