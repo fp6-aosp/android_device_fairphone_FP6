@@ -138,6 +138,7 @@ TARGET_KERNEL_EXT_MODULE_ROOT := kernel/fairphone/sm7635-modules
 TARGET_KERNEL_EXT_MODULES := \
     fairphone/emkit \
     fairphone/input/finger \
+    fairphone/input/hall_kernel \
     fairphone/input/misc/vl53L1 \
     fairphone/misc/haptic_hv \
     qcom/opensource/mmrm-driver \

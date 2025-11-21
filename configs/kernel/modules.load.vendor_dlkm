@@ -265,3 +265,4 @@ eswin_ts.ko
 qts.ko
 msm_video.ko
 msm_kgsl.ko
+hall_det.ko
