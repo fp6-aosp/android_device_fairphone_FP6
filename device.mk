@@ -300,6 +300,10 @@ PRODUCT_PACKAGES += \
     vendor_dsp_mountpoint \
     vendor_firmware_mnt_mountpoint
 
+# NFC
+PRODUCT_PACKAGES += \
+    android.hardware.nfc-service.sec
+
 # Overlays
 PRODUCT_PACKAGES += \
     CarrierConfigResFP6 \
