@@ -57,11 +57,6 @@
 # hall
 /sys/devices/virtual/hall_switch/soc:hall_1/hall_status            u:object_r:fp_mmitest_sysfs:s0
 
-# NFC
-/(vendor|system/vendor)/bin/hw/android\.hardware\.nfc-service\.sec         u:object_r:hal_nfc_default_exec:s0
-
-/dev/sec-nfc    u:object_r:nfc_device:s0
-
 # Power
 /(vendor|system/vendor)/bin/hw/android\.hardware\.power-service-qti               u:object_r:hal_power_default_exec:s0
 
