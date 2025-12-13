@@ -21,6 +21,7 @@ AB_OTA_PARTITIONS += \
     boot \
     dtbo \
     init_boot \
+    pvmfw \
     recovery \
     vbmeta \
     vbmeta_system \
@@ -188,6 +189,7 @@ BOARD_FLASH_BLOCK_SIZE := $(shell echo $$(( $(BOARD_KERNEL_PAGESIZE) * 64 )))
 BOARD_BOOTIMAGE_PARTITION_SIZE := $(shell echo $$(( 96 * 1024 * 1024 )))
 BOARD_DTBOIMG_PARTITION_SIZE := $(shell echo $$(( 30 * 1024 * 1024 )))
 BOARD_INIT_BOOT_IMAGE_PARTITION_SIZE := $(shell echo $$(( 8 * 1024 * 1024 )))
+BOARD_PVMFWIMAGE_PARTITION_SIZE := $(shell echo $$(( 1 * 1024 * 1024 )))
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := $(shell echo $$(( 100 * 1024 * 1024 )))
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := $(shell echo $$(( 96 * 1024 * 1024 )))
 

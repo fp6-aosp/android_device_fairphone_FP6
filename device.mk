@@ -444,8 +444,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     vendor/qcom/opensource/vibrator/excluded-input-devices.xml:$(TARGET_COPY_OUT_VENDOR)/etc/excluded-input-devices.xml
 
-# Virtualization service
+# Virtualization
 $(call inherit-product, packages/modules/Virtualization/apex/product_packages.mk)
+
+PRODUCT_BUILD_PVMFW_IMAGE := true
 
 # WiFi
 PRODUCT_PACKAGES += \
