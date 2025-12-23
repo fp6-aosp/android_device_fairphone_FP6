@@ -29,6 +29,9 @@ namespace_imports = [
 def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
     return f'{lib}_{partition}' if partition == 'vendor' else None
 
+def lib_fixup_system_ext_suffix(lib: str, partition: str, *args, **kwargs):
+    return f'{lib}_{partition}' if partition == 'system_ext' else None
+
 lib_fixups: lib_fixups_user_type = {
     (
         'com.qualcomm.qti.dpm.api@1.0',
@@ -42,6 +45,10 @@ lib_fixups: lib_fixups_user_type = {
         'vendor.qti.imsrtpservice@3.1',
         'vendor.qti.qccvndhal_aidl-V1-ndk',
     ): lib_fixup_vendor_suffix,
+    (
+        'libprotobuf-cpp-full-21.7-v',
+        'libprotobuf-cpp-lite-21.7-v',
+    ): lib_fixup_system_ext_suffix,
 }
 
 blob_fixups: blob_fixups_user_type = {

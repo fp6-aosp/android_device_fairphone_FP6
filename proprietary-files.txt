@@ -1120,6 +1120,9 @@ vendor/lib64/vendor.qti.hardware.alarm-V1-ndk.so
 
 # Protobuf
 vendor/lib64/libprotobuf-cpp-full-21.7.so
+vendor/lib64/libprotobuf-cpp-full-21.7.so:system_ext/lib64/libprotobuf-cpp-full-21.7.so;MODULE_SUFFIX=_system_ext
+vendor/lib64/libprotobuf-cpp-lite-21.7.so
+vendor/lib64/libprotobuf-cpp-lite-21.7.so:system_ext/lib64/libprotobuf-cpp-lite-21.7.so;MODULE_SUFFIX=_system_ext
 
 # QCC
 system_ext/app/QCC/QCC.apk
@@ -1400,7 +1403,6 @@ vendor/etc/sensors/hals.conf
 vendor/etc/sensors/sns_reg_config
 vendor/etc/vintf/manifest/vendor.qti.hardware.sensorscalibrate.xml
 vendor/lib64/hw/sensors.vl53l1.so
-vendor/lib64/libprotobuf-cpp-lite-21.7.so
 vendor/lib64/libqsh.so
 vendor/lib64/libsensorcal.so
 vendor/lib64/libsensorslog.so
