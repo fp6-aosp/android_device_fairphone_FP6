@@ -52,16 +52,33 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 blob_fixups: blob_fixups_user_type = {
-    'system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2-halimpl.so': blob_fixup()
-        .replace_needed('libprotobuf-cpp-full.so', 'libprotobuf-cpp-full-21.7.so'),
+    (
+        'system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2-halimpl.so',
+        'vendor/bin/sensors.qti',
+        'vendor/lib64/com.qti.qseeaon.so',
+        'vendor/lib64/libizat_core.so',
+        'vendor/lib64/libqcrilNr.so',
+        'vendor/lib64/libqsh.so',
+        'vendor/lib64/libqshcamera.so',
+        'vendor/lib64/libsensorcal.so',
+        'vendor/lib64/libsnsapi.so',
+        'vendor/lib64/libsnsapi-full.so',
+        'vendor/lib64/libsnsdiaglog.so',
+        'vendor/lib64/sensors.qsh.so',
+    ): blob_fixup()
+        .replace_needed('libprotobuf-cpp-full.so', 'libprotobuf-cpp-full-21.7-v.so')
+        .replace_needed('libprotobuf-cpp-full-21.7.so', 'libprotobuf-cpp-full-21.7-v.so')
+        .replace_needed('libprotobuf-cpp-lite-21.7.so', 'libprotobuf-cpp-lite-21.7-v.so'),
     (
         'vendor/bin/qcc-vendor',
         'vendor/bin/qms',
         'vendor/bin/xtra-daemon',
         'vendor/lib64/libcne.so',
         'vendor/lib64/libqcc_sdk.so',
-    ) : blob_fixup()
-        .add_needed('libshim_binder.so'),
+    ): blob_fixup()
+        .add_needed('libshim_binder.so')
+        .replace_needed('libprotobuf-cpp-full-21.7.so', 'libprotobuf-cpp-full-21.7-v.so')
+        .replace_needed('libprotobuf-cpp-lite-21.7.so', 'libprotobuf-cpp-lite-21.7-v.so'),
     (
         'vendor/lib64/camera/com.qti.eeprom.gt24p128c2csli_imx766.so',
         'vendor/lib64/camera/com.qti.eeprom.gt24p64b_imx688.so',
@@ -191,7 +208,9 @@ blob_fixups: blob_fixups_user_type = {
     ): blob_fixup().replace_needed(
         'android.hardware.graphics.allocator-V1-ndk.so',
         'android.hardware.graphics.allocator-V2-ndk.so',
-    ),
+        )
+        .replace_needed('libprotobuf-cpp-full-21.7.so', 'libprotobuf-cpp-full-21.7-v.so')
+        .replace_needed('libprotobuf-cpp-lite-21.7.so', 'libprotobuf-cpp-lite-21.7-v.so'),
     (
         'vendor/lib64/libcapiv2uvvendor.so',
         'vendor/lib64/liblistensoundmodel2vendor.so',

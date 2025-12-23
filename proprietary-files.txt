@@ -1119,10 +1119,10 @@ vendor/lib64/hw/vendor.qti.hardware.alarm-impl.so
 vendor/lib64/vendor.qti.hardware.alarm-V1-ndk.so
 
 # Protobuf
-vendor/lib64/libprotobuf-cpp-full-21.7.so
-vendor/lib64/libprotobuf-cpp-full-21.7.so:system_ext/lib64/libprotobuf-cpp-full-21.7.so;MODULE_SUFFIX=_system_ext
-vendor/lib64/libprotobuf-cpp-lite-21.7.so
-vendor/lib64/libprotobuf-cpp-lite-21.7.so:system_ext/lib64/libprotobuf-cpp-lite-21.7.so;MODULE_SUFFIX=_system_ext
+vendor/lib64/libprotobuf-cpp-full-21.7.so:vendor/lib64/libprotobuf-cpp-full-21.7-v.so;FIX_SONAME
+vendor/lib64/libprotobuf-cpp-full-21.7.so:system_ext/lib64/libprotobuf-cpp-full-21.7-v.so;MODULE_SUFFIX=_system_ext;FIX_SONAME
+vendor/lib64/libprotobuf-cpp-lite-21.7.so:vendor/lib64/libprotobuf-cpp-lite-21.7-v.so;FIX_SONAME
+vendor/lib64/libprotobuf-cpp-lite-21.7.so:system_ext/lib64/libprotobuf-cpp-lite-21.7-v.so;MODULE_SUFFIX=_system_ext;FIX_SONAME
 
 # QCC
 system_ext/app/QCC/QCC.apk
