@@ -114,8 +114,6 @@ TARGET_USERIMAGES_USE_F2FS := true
 ## Kernel
 BOARD_KERNEL_IMAGE_NAME := Image
 TARGET_KERNEL_ADDITIONAL_FLAGS := \
-    BRANCH=android14-6.1 \
-    KMI_GENERATION=11 \
     TARGET_BOARD_PLATFORM=volcano
 TARGET_KERNEL_CONFIG := \
     gki_defconfig \
@@ -124,7 +122,7 @@ TARGET_KERNEL_NO_GCC := true
 TARGET_KERNEL_SOURCE := kernel/fairphone/sm7635
 
 ## Kernel Modules
-BOARD_SYSTEM_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/configs/kernel/modules.load.system_dlkm))
+BOARD_SYSTEM_KERNEL_MODULES_LOAD := $(strip $(shell sed 's/#.*$$//;/^$$/d' $(DEVICE_PATH)/configs/kernel/modules.load.system_dlkm))
 BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(DEVICE_PATH)/configs/kernel/modules.blocklist
 BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/configs/kernel/modules.load.vendor_dlkm))
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE)
@@ -171,7 +169,6 @@ TARGET_KERNEL_EXT_MODULES := \
     qcom/opensource/wlan/qcacld-3.0/.wcn6450 \
     qcom/opensource/bt-kernel \
     qcom/opensource/spu-kernel \
-    qcom/opensource/mm-sys-kernel/ubwcp \
     qcom/opensource/touch-drivers \
     nxp/opensource/driver \
     samsung_slsi/nfc/driver
