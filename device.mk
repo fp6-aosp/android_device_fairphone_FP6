@@ -245,6 +245,7 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/init/init.kernel.post_boot-volcano_default_4_3_1.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.kernel.post_boot-volcano_default_4_3_1.sh \
     $(DEVICE_PATH)/configs/init/init.kernel.post_boot.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.kernel.post_boot.sh \
     $(DEVICE_PATH)/configs/init/init.mdm.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.mdm.sh \
+    $(DEVICE_PATH)/configs/init/init.power.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.power.rc \
     $(DEVICE_PATH)/configs/init/init.qcom.class_core.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.class_core.sh \
     $(DEVICE_PATH)/configs/init/init.qcom.coex.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.coex.sh \
     $(DEVICE_PATH)/configs/init/init.qcom.early_boot.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.early_boot.sh \
@@ -377,13 +378,14 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml
 
 # Power
-$(call soong_config_set,qtipower,tap_to_wake_node,/sys/bus/spi/devices/spi0.0/gesture_wakeup)
+PRODUCT_PACKAGES += \
+    android.hardware.power-service.pixel-libperfmgr
 
 PRODUCT_PACKAGES += \
-    android.hardware.power-service-qti
+    libqti-perfd-client
 
 PRODUCT_COPY_FILES += \
-    vendor/qcom/opensource/power/config/volcano/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
+    $(DEVICE_PATH)/configs/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
 # QSPA
 PRODUCT_PACKAGES += \
@@ -400,6 +402,9 @@ PRODUCT_PACKAGES += \
 # Soong Namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(DEVICE_PATH) \
+    hardware/google/interfaces \
+    hardware/google/pixel \
+    hardware/qcom-caf/common/libqti-perfd-client \
     vendor/qcom/opensource/usb/etc
 
 # Telephony

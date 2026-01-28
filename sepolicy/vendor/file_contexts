@@ -58,7 +58,7 @@
 /sys/devices/virtual/hall_switch/soc:hall_1/hall_status            u:object_r:fp_mmitest_sysfs:s0
 
 # Power
-/(vendor|system/vendor)/bin/hw/android\.hardware\.power-service-qti               u:object_r:hal_power_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.power-service\.pixel-libperfmgr               u:object_r:hal_power_default_exec:s0
 
 # Touchscreen
 /sys/bus/spi/drivers/eswin_eph861x(/.*)?                                                                                u:object_r:fp_mmitest_sysfs:s0
