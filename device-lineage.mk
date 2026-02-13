@@ -16,6 +16,9 @@
 
 DEVICE_PATH := device/fairphone/FP6
 
+# Bluetooth
+$(call soong_config_set,bluetooth_module,leaudio_lc3_default_bit,24)
+
 # Lineage Health
 $(call soong_config_set,lineage_health,charging_control_charging_path,/sys/class/qcom-battery/charge_disable)
 $(call soong_config_set,lineage_health,charging_control_charging_enabled,0)
