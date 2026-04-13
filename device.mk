@@ -234,16 +234,6 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/init/init.class_main.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.class_main.sh \
     $(DEVICE_PATH)/configs/init/init.crda.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.crda.sh \
     $(DEVICE_PATH)/configs/init/init.embmssl_server.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.embmssl_server.rc \
-    $(DEVICE_PATH)/configs/init/init.kernel.early_boot-memory.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.kernel.early_boot-memory.sh \
-    $(DEVICE_PATH)/configs/init/init.kernel.post_boot-memory.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.kernel.post_boot-memory.sh \
-    $(DEVICE_PATH)/configs/init/init.kernel.post_boot-volcano.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.kernel.post_boot-volcano.sh \
-    $(DEVICE_PATH)/configs/init/init.kernel.post_boot-volcano_2_2_1.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.kernel.post_boot-volcano_2_2_1.sh \
-    $(DEVICE_PATH)/configs/init/init.kernel.post_boot-volcano_3_2_1.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.kernel.post_boot-volcano_3_2_1.sh \
-    $(DEVICE_PATH)/configs/init/init.kernel.post_boot-volcano_3_3_1.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.kernel.post_boot-volcano_3_3_1.sh \
-    $(DEVICE_PATH)/configs/init/init.kernel.post_boot-volcano_4_2_1.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.kernel.post_boot-volcano_4_2_1.sh \
-    $(DEVICE_PATH)/configs/init/init.kernel.post_boot-volcano_4_3_0.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.kernel.post_boot-volcano_4_3_0.sh \
-    $(DEVICE_PATH)/configs/init/init.kernel.post_boot-volcano_default_4_3_1.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.kernel.post_boot-volcano_default_4_3_1.sh \
-    $(DEVICE_PATH)/configs/init/init.kernel.post_boot.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.kernel.post_boot.sh \
     $(DEVICE_PATH)/configs/init/init.mdm.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.mdm.sh \
     $(DEVICE_PATH)/configs/init/init.power.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.power.rc \
     $(DEVICE_PATH)/configs/init/init.qcom.class_core.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.class_core.sh \
@@ -258,20 +248,13 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/init/init.qlm-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.qlm-service.rc \
     $(DEVICE_PATH)/configs/init/init.qti.graphics.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.qti.graphics.rc \
     $(DEVICE_PATH)/configs/init/init.qti.graphics.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qti.graphics.sh \
-    $(DEVICE_PATH)/configs/init/init.qti.kernel.debug-volcano.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qti.kernel.debug-volcano.sh \
-    $(DEVICE_PATH)/configs/init/init.qti.kernel.debug.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qti.kernel.debug.sh \
-    $(DEVICE_PATH)/configs/init/init.qti.kernel.early_debug-volcano.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qti.kernel.early_debug-volcano.sh \
-    $(DEVICE_PATH)/configs/init/init.qti.kernel.early_debug.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qti.kernel.early_debug.sh \
-    $(DEVICE_PATH)/configs/init/init.qti.kernel.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.qti.kernel.rc \
-    $(DEVICE_PATH)/configs/init/init.qti.kernel.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qti.kernel.sh \
     $(DEVICE_PATH)/configs/init/init.qti.ufs.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.qti.ufs.rc \
     $(DEVICE_PATH)/configs/init/init.qti.write.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qti.write.sh \
     $(DEVICE_PATH)/configs/init/init.recovery.qcom.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.qcom.rc \
     $(DEVICE_PATH)/configs/init/init.target.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.target.rc \
     $(DEVICE_PATH)/configs/init/system_dlkm_modprobe.sh:$(TARGET_COPY_OUT_VENDOR)/bin/system_dlkm_modprobe.sh \
     $(DEVICE_PATH)/configs/init/ueventd-odm.rc:$(TARGET_COPY_OUT_ODM)/etc/ueventd.rc \
-    $(DEVICE_PATH)/configs/init/ueventd.qcom.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc \
-    $(DEVICE_PATH)/configs/init/vendor_modprobe.sh:$(TARGET_COPY_OUT_VENDOR)/bin/vendor_modprobe.sh
+    $(DEVICE_PATH)/configs/init/ueventd.qcom.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc
 
 # IPACM
 PRODUCT_PACKAGES += \
