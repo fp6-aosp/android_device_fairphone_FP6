@@ -51,7 +51,6 @@ BOARD_BOOTCONFIG := \
     androidboot.memcg=1 \
     androidboot.usbcontroller=a600000.dwc3 \
     androidboot.load_modules_parallel=true \
-    androidboot.vendor.qspa=true \
     androidboot.console=0 \
     androidboot.hypervisor.protected_vm.supported=true \
     androidboot.hypervisor.version=gunyah
