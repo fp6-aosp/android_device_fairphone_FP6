@@ -1,0 +1,8 @@
+import /vendor/etc/ueventd.qcom.rc
+
+# tap to wake
+/sys/devices/platform/soc/ac0000.qcom,qupv3_0_geni_se/a80000.spi/spi_master/spi0/spi0.0   gesture_wakeup    0660    system  system
+
+# Battery
+/sys/class/qcom-battery                                 charge_disable                  0660    system  system
+/sys/class/qcom-battery                                 chgmod_fcc                      0660    system  system

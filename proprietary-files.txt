@@ -1031,6 +1031,7 @@ vendor/etc/init/hw/init.qti.ufs.rc
 vendor/etc/init/hw/init.target.rc
 vendor/etc/init/init.embmssl_server.rc
 vendor/etc/init/init.qlm-service.rc
+vendor/etc/ueventd.rc:vendor/etc/ueventd.qcom.rc
 
 # Kernel
 vendor/bin/init.qti.kernel.debug-volcano.sh

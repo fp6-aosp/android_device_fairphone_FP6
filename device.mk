@@ -231,7 +231,7 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/init/init.power.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.power.rc \
     $(DEVICE_PATH)/configs/init/init.recovery.qcom.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.qcom.rc \
     $(DEVICE_PATH)/configs/init/system_dlkm_modprobe.sh:$(TARGET_COPY_OUT_VENDOR)/bin/system_dlkm_modprobe.sh \
-    $(DEVICE_PATH)/configs/init/ueventd.qcom.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc
+    $(DEVICE_PATH)/configs/init/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc
 
 # IPACM
 PRODUCT_PACKAGES += \
