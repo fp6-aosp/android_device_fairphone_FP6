@@ -5,6 +5,6 @@
         <interface>
             <name>ITctCameraAlgoService</name>
             <instance>default</instance>
-         </interface>
+        </interface>
     </hal>
 </compatibility-matrix>
