@@ -75,6 +75,7 @@ camera.disable_zsl_mode=1
 debug.camera.packagename=com.fps.camera
 persist.vendor.camera.forcepriv=false
 persist.vendor.camera.fprom=1
+ro.camera.disableHeicUltraHDR=true
 ro.camera.enableCamera1MaxZsl=1
 
 ## CNE
