@@ -279,7 +279,6 @@ PRODUCT_PACKAGES += \
     SystemUIResFP6 \
     TelephonyResFP6 \
     TetheringResFP6 \
-    UwbResFP6 \
     WifiResFP6
 
 # Permissions
