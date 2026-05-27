@@ -412,14 +412,6 @@
          and one pSIM) -->
     <integer name="config_num_physical_slots">2</integer>
 
-    <!--The default "usage setting" indicating that the device is either a voice-centric
-    device (1) or a data-centric device (2). A voice-centric device will require that any cellular
-    service that it uses provides access to voice capability, and a data-centric device will
-    likewise require that the network provides access to data services. These settings are
-    sent to the cellular modem and control the behavior in accordance with 3gpp TS 24.301 sec 4.3
-    (and equivalent functionality in other generations of cellular).-->
-    <integer name="config_default_cellular_usage_setting">-1</integer>
-
     <!-- Whether device supports double tap to wake -->
     <bool name="config_supportDoubleTapWake">true</bool>
 
