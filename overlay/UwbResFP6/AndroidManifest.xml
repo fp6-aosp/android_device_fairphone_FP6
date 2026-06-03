@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Qualcomm specific UWB overlays -->
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.uwb.resources.overlay.fp6"
-    coreApp="true"
-    android:versionCode="1"
-    android:versionName="1.0">
-    <application android:hasCode="false"/>
-    <overlay
-       android:targetPackage="com.android.uwb.resources"
-       android:targetName = "UwbCustomization"
-       android:isStatic="true"
-       android:priority="0"/>
+          package="com.android.uwb.resources.overlay.fp6">
+    <overlay android:targetPackage="com.android.uwb.resources"
+             android:targetName="UwbCustomization"
+             android:isStatic="true"
+             android:priority="0" />
 </manifest>

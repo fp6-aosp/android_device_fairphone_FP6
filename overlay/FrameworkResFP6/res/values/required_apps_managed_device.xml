@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
 <resources>
     <!-- A list of apps to be retained on the managed device.
             Takes precedence over the disallowed apps lists. -->
-    <string-array translatable="false" name="required_apps_managed_device">
+    <string-array name="required_apps_managed_device" translatable="false">
         <item>com.android.settings</item>
         <item>com.android.systemui</item>
         <item>com.android.contacts</item>

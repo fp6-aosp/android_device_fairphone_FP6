@@ -273,13 +273,10 @@ PRODUCT_PACKAGES += \
 # Overlays
 PRODUCT_PACKAGES += \
     CarrierConfigResFP6 \
-    CellBroadcastReceiverResFP6 \
     FrameworksResFP6 \
-    SecureElementResFP6 \
     SettingsProviderResFP6 \
     SettingsResFP6 \
     SystemUIResFP6 \
-    TelecommResFP6 \
     TelephonyResFP6 \
     TetheringResFP6 \
     UwbResFP6 \
