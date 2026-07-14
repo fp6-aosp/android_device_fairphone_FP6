@@ -52,6 +52,8 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 blob_fixups: blob_fixups_user_type = {
+    'system_ext/etc/seccomp_policy/tcmd.policy': blob_fixup()
+        .add_line_if_missing('lseek: 1'),
     (
         'system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2-halimpl.so',
         'vendor/bin/sensors.qti',
