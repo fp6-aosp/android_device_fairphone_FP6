@@ -1,3 +1,5 @@
+# All firmware images below are extracted from the release mentioned in proprietary-files.txt
+
 abl.elf:abl.img;AB
 aop.mbn:aop.img;AB
 aop_devcfg.mbn:aop_config.img;AB
