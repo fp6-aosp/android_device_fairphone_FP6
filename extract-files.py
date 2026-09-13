@@ -81,6 +81,8 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libshim_binder.so')
         .replace_needed('libprotobuf-cpp-full-21.7.so', 'libprotobuf-cpp-full-21.7-v.so')
         .replace_needed('libprotobuf-cpp-lite-21.7.so', 'libprotobuf-cpp-lite-21.7-v.so'),
+    'vendor/etc/init/tctd.rc': blob_fixup()
+        .regex_replace('.+seclabel.+\n', ''),
     (
         'vendor/lib64/camera/com.qti.eeprom.gt24p128c2csli_imx766.so',
         'vendor/lib64/camera/com.qti.eeprom.gt24p64b_imx688.so',

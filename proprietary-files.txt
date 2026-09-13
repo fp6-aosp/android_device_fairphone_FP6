@@ -1580,3 +1580,7 @@ vendor/firmware/qca6750/wpss.b12|cee7781b6b075adf19b4b1f642594352cf64ac3a
 vendor/firmware/qca6750/wpss.mdt|76c0bb928942c56781560cd43b5bbc163a4d720a
 vendor/firmware/qca6750/bdwlan.elf|27a109968a47a3595960072c85191222d00e44b1
 vendor/firmware/qca6750/regdb.bin|312933c421eddc131be62c3d1bbe9de20e888607
+
+# WiFi mac address
+vendor/bin/tctd
+vendor/etc/init/tctd.rc
