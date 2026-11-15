@@ -27,6 +27,7 @@ cc_binary {
     ],
     header_libs: [
         "libhardware_headers",
+        "securemsm_QSEEComAPI_inc",
     ],
     shared_libs: [
         "libQSEEComAPI",

@@ -7,23 +7,12 @@
 
 #include "FocalTrustlet.h"
 
+#include <QSEEComAPI.h>
 #include <android-base/logging.h>
 
 #include <algorithm>
 #include <cerrno>
 #include <cstring>
-
-extern "C" {
-struct QSEECom_handle {
-    void* ion_sbuffer;
-};
-
-int QSEECom_start_app(QSEECom_handle** handle, const char* path, const char* appname,
-                      uint32_t sbSize);
-int QSEECom_shutdown_app(QSEECom_handle** handle);
-int QSEECom_send_cmd(QSEECom_handle* handle, void* sendBuf, uint32_t sendLen, void* respBuf,
-                     uint32_t respLen);
-}
 
 namespace focaltech {
 
