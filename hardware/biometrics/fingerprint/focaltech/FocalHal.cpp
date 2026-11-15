@@ -30,7 +30,10 @@ constexpr size_t kTemplateUpdatedOffset = 0x2a4;
 constexpr uint32_t kFilteredEnrollStatus = 0x3ea;
 constexpr uint32_t kFakeFingerStatus = 0x4b4;
 constexpr uint32_t kTooFastStatus = 5;
+constexpr uint32_t kRemoteKeyNavUp = 4;
+constexpr uint32_t kRemoteKeyNavDown = 8;
 constexpr uint32_t kRemoteKeyIgnored = 0x55;
+constexpr int kKeyPressMs = 10;
 constexpr uint32_t kRemoteKeyDown = 0x80;
 constexpr uint32_t kRemoteKeyUp = 0x81;
 
@@ -835,15 +838,31 @@ int FocalHal::reportAuthentication(const EventMsg& event) {
 }
 
 int FocalHal::reportKey(const EventMsg& event) {
+    int keycode = 0;
     switch (event.gid) {
-        case kRemoteKeyIgnored:
+        case kRemoteKeyNavUp:
+            keycode = mConfig.getInt("driver.keycode_nav_up", 0);
+            break;
+        case kRemoteKeyNavDown:
+            keycode = mConfig.getInt("driver.keycode_nav_down", 0);
             break;
         case kRemoteKeyDown:
             mDevice.reportKey(mConfig.getInt("driver.keycode_simulation", 0), 1);
-            break;
+            return 0;
         case kRemoteKeyUp:
             mDevice.reportKey(mConfig.getInt("driver.keycode_simulation", 0), 0);
-            break;
+            return 0;
+        case kRemoteKeyIgnored:
+            return 0;
+        default:
+            LOG(DEBUG) << "unhandled key event " << event.gid;
+            return 0;
+    }
+
+    if (keycode > 0) {
+        mDevice.reportKey(keycode, 1);
+        sleepMs(kKeyPressMs);
+        mDevice.reportKey(keycode, 0);
     }
     return 0;
 }

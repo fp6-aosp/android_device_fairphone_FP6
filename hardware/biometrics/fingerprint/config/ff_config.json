@@ -360,7 +360,7 @@
                 0,
                 511
             ],
-            "value": 0
+            "value": 105
         },
         "keycode_nav_right": {
             "type": "range",
@@ -368,7 +368,7 @@
                 0,
                 511
             ],
-            "value": 0
+            "value": 106
         },
         "keycode_nav_up": {
             "type": "range",
@@ -376,7 +376,7 @@
                 0,
                 511
             ],
-            "value": 0
+            "value": 103
         },
         "keycode_nav_down": {
             "type": "range",
@@ -384,7 +384,7 @@
                 0,
                 511
             ],
-            "value": 0
+            "value": 108
         },
         "keycode_click": {
             "type": "range",
@@ -490,7 +490,7 @@
         },
         "gesturing_mode": {
             "type": "enum",
-            "value": 0,
+            "value": 1,
             "names": [
                 "none",
                 "navigation only",
