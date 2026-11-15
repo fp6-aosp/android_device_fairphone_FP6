@@ -794,15 +794,12 @@ vendor/lib64/vendor.qti.hardware.dpmaidlservice-V1-ndk.so;MODULE_SUFFIX=_vendor
 
 # DRM
 vendor/bin/hw/vendor.qti.hardware.qseecom@1.0-service
-vendor/bin/qseecomd
 vendor/etc/gpfspath_oem_config.xml
-vendor/etc/init/qseecomd.rc
 vendor/etc/init/vendor.qti.hardware.qseecom@1.0-service.rc
 vendor/etc/vintf/manifest/vendor.qti.hardware.qseecom@1.0-service.xml
 vendor/lib64/hw/vendor.qti.hardware.qseecom@1.0-impl.so
 vendor/lib64/libGPreqcancel.so
 vendor/lib64/libGPreqcancel_svc.so
-vendor/lib64/libQSEEComAPI.so
 vendor/lib64/libcpion.so
 vendor/lib64/libdrmfs.so
 vendor/lib64/libdrmtime.so
@@ -837,9 +834,6 @@ vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.fm@1.0.so
 
 # Gatekeeper
-vendor/bin/hw/android.hardware.gatekeeper-service-qti
-vendor/etc/init/android.hardware.gatekeeper-service-qti.rc
-vendor/lib64/hw/libqtigatekeeper.so
 vendor/lib64/libkeymasterdeviceutils.so
 
 # GNSS
@@ -1476,9 +1470,7 @@ vendor/lib64/sensors.qsh.so
 vendor/lib64/vendor.qti.hardware.sensorscalibrate-V1-ndk.so
 
 # SMC Invoke
-vendor/lib64/libminkdescriptor.so
 vendor/lib64/libminksocket_vendor.so
-vendor/lib64/libqcbor.so
 
 # SSR
 vendor/bin/ssr_diag

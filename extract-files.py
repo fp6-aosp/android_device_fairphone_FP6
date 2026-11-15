@@ -22,6 +22,7 @@ namespace_imports = [
     'device/fairphone/FP6',
     'hardware/qcom-caf/sm8650',
     'hardware/qcom-caf/wlan',
+    'hardware/qcom/bsp',
     'vendor/qcom/opensource/commonsys-intf/display',
     'vendor/qcom/opensource/dataservices',
 ]

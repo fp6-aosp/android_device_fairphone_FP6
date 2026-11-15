@@ -180,6 +180,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/keylayout/ff_key.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/ff_key.kl
 
+# Gatekeeper
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper-service-qti
+
 # GPS
 PRODUCT_PACKAGES += \
     android.hardware.gnss-aidl-impl-qti \
@@ -359,6 +363,10 @@ PRODUCT_PACKAGES += \
     vendor.qti.qspa-service \
     qspa_vendor.rc
 
+# QSEECom
+PRODUCT_PACKAGES += \
+    qseecomd
+
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors-service.multihal
@@ -369,6 +377,7 @@ PRODUCT_PACKAGES += \
 # Soong Namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(DEVICE_PATH) \
+    hardware/qcom/bsp \
     vendor/qcom/opensource/usb/etc
 
 # Telephony
