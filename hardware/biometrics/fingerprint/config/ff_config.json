@@ -680,7 +680,7 @@
         "enable_trustlet_native_log": true,
         "framework_log_level": {
             "type": "enum",
-            "value": 2,
+            "value": 4,
             "names": [
                 "all",
                 "verbose",
