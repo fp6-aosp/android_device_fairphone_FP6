@@ -40,6 +40,7 @@ class FocalHal {
     int enroll(const hw_auth_token_t& hat, uint32_t gid, uint32_t timeoutSec);
     int postEnroll();
     int getAuthenticatorId(uint64_t* id);
+    int invalidateAuthenticatorId(uint64_t* id);
     int cancel();
     int enumerate();
     int remove(uint32_t gid, uint32_t fid);

@@ -1119,6 +1119,12 @@ int FocalHal::getAuthenticatorId(uint64_t* id) {
     return mTrustlet.getAuthenticatorId(id);
 }
 
+int FocalHal::invalidateAuthenticatorId(uint64_t* id) {
+    std::lock_guard<std::mutex> lock(mMutex);
+    *id = 0;
+    return mTrustlet.invalidateAuthenticatorId(id);
+}
+
 int FocalHal::enroll(const hw_auth_token_t& hat, uint32_t gid, uint32_t timeoutSec) {
     std::lock_guard<std::mutex> lock(mMutex);
 

@@ -116,7 +116,7 @@ ndk::ScopedAStatus Session::getAuthenticatorId() {
 
 ndk::ScopedAStatus Session::invalidateAuthenticatorId() {
     uint64_t auth_id = 0;
-    mDevice->getAuthenticatorId(&auth_id);
+    mDevice->invalidateAuthenticatorId(&auth_id);
     ALOGI("invalidateAuthenticatorId: %ld", auth_id);
     mCb->onAuthenticatorIdInvalidated(auth_id);
     return ndk::ScopedAStatus::ok();
