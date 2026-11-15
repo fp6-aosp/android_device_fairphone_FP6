@@ -80,6 +80,7 @@ class FocalTrustlet {
              uint32_t outCap = 0, uint32_t* outLen = nullptr);
     int callLocked(uint32_t cmd, const void* in, uint32_t inLen, void* out, uint32_t outCap,
                    uint32_t* outLen);
+    void printTrustletLog();
     int provisionKeymasterKey(const std::string& keymasterPath);
 
     std::mutex mMutex;

@@ -173,6 +173,7 @@ int FocalTrustlet::callLocked(uint32_t cmd, const void* in, uint32_t inLen, void
         PLOG(ERROR) << "QSEECom_send_cmd cmd=0x" << std::hex << cmd;
         return FF_ERR_GENERIC;
     }
+    printTrustletLog();
     if (!(header->cmd & kResponseFlag)) {
         LOG(ERROR) << "bad response to cmd 0x" << std::hex << cmd;
         return FF_ERR_PROTOCOL;
@@ -184,6 +185,53 @@ int FocalTrustlet::callLocked(uint32_t cmd, const void* in, uint32_t inLen, void
         memcpy(out, data, std::min(outCap, header->len));
     }
     return static_cast<int>(header->err);
+}
+
+// The trustlet appends its log as entries of '!', level, a 32 byte tag and the text.
+void FocalTrustlet::printTrustletLog() {
+    constexpr uint8_t kPending = '*';
+    constexpr uint8_t kEntry = '!';
+    constexpr uint8_t kConsumed = 0xde;
+    constexpr size_t kTextOffset = 0x25;
+
+    uint8_t* log = mBuffer + kSendSize;
+    uint8_t* end = log + kRespSize;
+    if (log[0] != kPending) return;
+
+    uint8_t* entry = log;
+    *entry = kEntry;
+    while (entry < end && *entry == kEntry) {
+        int32_t level;
+        memcpy(&level, entry + 1, sizeof(level));
+        if (level > 6 || entry + kTextOffset >= end) break;
+
+        const char* tag = reinterpret_cast<const char*>(entry + 6);
+        const char* text = reinterpret_cast<const char*>(entry + kTextOffset);
+        size_t len = strnlen(text, end - entry - kTextOffset);
+        if (entry + kTextOffset + len >= end) break;
+
+        android::base::LogSeverity severity;
+        switch (level) {
+            case 1:
+                severity = android::base::VERBOSE;
+                break;
+            case 2:
+                severity = android::base::DEBUG;
+                break;
+            case 3:
+                severity = android::base::DEBUG;
+                break;
+            case 4:
+                severity = android::base::WARNING;
+                break;
+            default:
+                severity = android::base::ERROR;
+                break;
+        }
+        LOG(severity) << "TA " << std::string(tag, strnlen(tag, 31)) << ": " << text;
+        entry += kTextOffset + len + 1;
+    }
+    log[0] = kConsumed;
 }
 
 int FocalTrustlet::init(TaInfo* info) {
