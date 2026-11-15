@@ -74,6 +74,8 @@ class FocalHal {
         int keycodeSimulation;
         bool fastScreenUnlock;
         bool spiOnDemand;
+        int healthCheckTiming;
+        int healthCheckTimeoutMs;
     };
 
     void loadSettings();
@@ -113,7 +115,15 @@ class FocalHal {
     int ensureActiveGroup(uint32_t gid, const std::string& path);
     int selectGroup(uint32_t gid);
     static int32_t workModeFor(int mode) {
-        return mode == MODE_ENROLL || mode == MODE_AUTH ? mode - 3 : 0;
+        switch (mode) {
+            case MODE_ENROLL:
+            case MODE_AUTH:
+                return WORK_MODE_SCAN;
+            case MODE_IDLE_LISTEN:
+                return WORK_MODE_LISTEN;
+            default:
+                return WORK_MODE_IDLE;
+        }
     }
     int idleMode() const { return mSettings.gesturingMode > 0 ? MODE_IDLE_LISTEN : MODE_IDLE; }
     int32_t remapAcquired(uint32_t status) const;
@@ -127,6 +137,9 @@ class FocalHal {
     void armEnrollTimer(uint32_t timeoutMs);
     void restartEnrollTimer();
     void disarmEnrollTimer();
+    void armHealthCheck(uint32_t delayMs);
+    void disarmHealthCheck();
+    void onHealthCheck();
     void armLazySave(uint32_t flags);
     void disarmLazySave();
     void onEnrollTimeout();
@@ -171,6 +184,7 @@ class FocalHal {
     std::chrono::milliseconds mEnrollTimeout{0};
     std::optional<Clock::time_point> mEnrollDeadline;
     std::optional<Clock::time_point> mLazyDeadline;
+    std::optional<Clock::time_point> mHealthDeadline;
 
     std::thread mEventThread;
     std::thread mTimerThread;

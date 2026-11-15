@@ -20,6 +20,8 @@ namespace {
 
 constexpr char kDefaultDataPath[] = "/data/vendor_de/0/fpdata";
 constexpr uint32_t kLazySaveDelayMs = 5000;
+constexpr uint32_t kHealthCheckDelayMs = 800;
+constexpr int64_t kHealthCheckIdleMs = 3000;
 constexpr uint32_t kWakelockMs = 2000;
 constexpr int kMaxStageSteps = 64;
 constexpr int kMaxLearningFrames = 8;
@@ -124,6 +126,8 @@ void FocalHal::loadSettings() {
     mSettings.keycodeSimulation = mConfig.getInt("driver.keycode_simulation", 0);
     mSettings.fastScreenUnlock = mConfig.getBool("extension.enable_fast_screen_unlock", false);
     mSettings.spiOnDemand = mConfig.getBool("driver.spi_on_demand", false);
+    mSettings.healthCheckTiming = mConfig.getInt("extension.health_check_timing", 1);
+    mSettings.healthCheckTimeoutMs = mConfig.getInt("extension.health_check_timeout", 4000);
 }
 
 DriverConfig FocalHal::driverConfig() const {
@@ -257,7 +261,7 @@ int FocalHal::probeDevice() {
             mDevice.powerOn(true);
             sleepMs(10);
             if (mConfig.getBool("device.vio_is_1p8", true) && !rePower) {
-                mTrustlet.configWorkMode(9);
+                mTrustlet.configWorkMode(WORK_MODE_RESET);
             }
             ret = FF_ERR_AGAIN;
         }
@@ -296,6 +300,7 @@ int FocalHal::initDevice() {
     std::lock_guard<std::mutex> lock(mMutex);
     mScreenOn = true;
     mMode = idleMode();
+    if (mSettings.healthCheckTiming != 0) armHealthCheck(mSettings.healthCheckTimeoutMs);
     return 0;
 }
 
@@ -356,6 +361,10 @@ int FocalHal::onScreenChanged(bool on) {
 
     if (mTrustletFailed || !mDeviceReady) return FF_ERR_GENERIC;
 
+    const int timing = mSettings.healthCheckTiming;
+    if (!on && (timing == 1 || timing == 4)) disarmHealthCheck();
+    if (on && (timing == 1 || timing == 3 || timing == 4)) armHealthCheck(kHealthCheckDelayMs);
+
     int ret = 0;
     if (!on) {
         int enrolled = mTrustlet.enumerate(nullptr);
@@ -363,10 +372,10 @@ int FocalHal::onScreenChanged(bool on) {
         if ((mSettings.gesturingMode > 0 && enrolled == 0) || mMode == MODE_IDLE_LISTEN) {
             mIdleWorkModeSet = true;
         }
-        if (mIdleWorkModeSet) ret = mTrustlet.configWorkMode(0);
+        if (mIdleWorkModeSet) ret = mTrustlet.configWorkMode(WORK_MODE_IDLE);
     } else if (mIdleWorkModeSet) {
         mIdleWorkModeSet = false;
-        ret = mTrustlet.configWorkMode(6);
+        ret = mTrustlet.configWorkMode(WORK_MODE_LISTEN);
     }
     return ret;
 }
@@ -427,6 +436,10 @@ int FocalHal::handleInterrupt() {
             ret = recoverDevice();
             break;
         }
+        case EVT_HEALTH:
+            LOG(INFO) << "health event";
+            if (mSettings.healthCheckTiming != 0) armHealthCheck(mSettings.healthCheckTimeoutMs);
+            break;
         case EVT_FINGER_DOWN:
             ret = handleFingerDown();
             break;
@@ -486,7 +499,7 @@ int FocalHal::handleFingerDown() {
     {
         std::lock_guard<std::mutex> lock(mMutex);
         if (mMode != MODE_ENROLL && mMode != MODE_AUTH) {
-            mTrustlet.configWorkMode(0);
+            mTrustlet.configWorkMode(WORK_MODE_IDLE);
             return 0;
         }
         ctx.mode = mMode;
@@ -681,22 +694,16 @@ int FocalHal::processStage(EventContext& ctx) {
 }
 
 int FocalHal::errorStage(EventContext& ctx) {
-    int32_t workMode;
     switch (ctx.code) {
         case CODE_RETRIES_EXHAUSTED:
-        case CODE_CANCELLED:
-            workMode = 0;
-            break;
         case CODE_FINGER_LEFT:
-            workMode = -2;
-            break;
         case CODE_CAPTURE_FAILED:
-            workMode = -1;
+        case CODE_CANCELLED:
             break;
         default:
             return 0;
     }
-    mTrustlet.configWorkMode(workMode);
+    mTrustlet.configWorkMode(WORK_MODE_ERROR);
 
     if (ctx.frames != 0) return reportResult(ctx);
 
@@ -731,7 +738,7 @@ int FocalHal::learningStage(EventContext& ctx) {
         ctx.frames++;
         if (updateTemplate(ctx) != 0) break;
     }
-    mTrustlet.configWorkMode(2);
+    mTrustlet.configWorkMode(WORK_MODE_ERROR);
     return 0;
 }
 
@@ -755,7 +762,8 @@ int FocalHal::updateTemplate(EventContext& ctx) {
 
 int FocalHal::reportResult(EventContext& ctx) {
     const EventMsg& event = ctx.event;
-    {
+    // Key events must not override a mode that was set while they were processed.
+    if (event.kind != RESULT_KEY) {
         std::lock_guard<std::mutex> lock(mMutex);
         mMode = event.nextMode;
     }
@@ -945,7 +953,7 @@ void FocalHal::timerLoop() {
     std::unique_lock<std::mutex> lock(mTimerMutex);
     while (mRunning) {
         std::optional<Clock::time_point> next;
-        for (const auto& deadline : {mEnrollDeadline, mLazyDeadline}) {
+        for (const auto& deadline : {mEnrollDeadline, mLazyDeadline, mHealthDeadline}) {
             if (deadline && (!next || *deadline < *next)) next = deadline;
         }
         if (!next) {
@@ -957,12 +965,15 @@ void FocalHal::timerLoop() {
         const auto now = Clock::now();
         const bool enrollFired = mEnrollDeadline && *mEnrollDeadline <= now;
         const bool lazyFired = mLazyDeadline && *mLazyDeadline <= now;
+        const bool healthFired = mHealthDeadline && *mHealthDeadline <= now;
         if (enrollFired) mEnrollDeadline.reset();
         if (lazyFired) mLazyDeadline.reset();
+        if (healthFired) mHealthDeadline.reset();
 
         lock.unlock();
         if (enrollFired) onEnrollTimeout();
         if (lazyFired) onLazySave();
+        if (healthFired) onHealthCheck();
         lock.lock();
     }
 }
@@ -987,6 +998,32 @@ void FocalHal::restartEnrollTimer() {
 void FocalHal::disarmEnrollTimer() {
     std::lock_guard<std::mutex> lock(mTimerMutex);
     mEnrollDeadline.reset();
+}
+
+void FocalHal::armHealthCheck(uint32_t delayMs) {
+    {
+        std::lock_guard<std::mutex> lock(mTimerMutex);
+        mHealthDeadline = Clock::now() + std::chrono::milliseconds(delayMs);
+    }
+    mTimerCv.notify_all();
+}
+
+void FocalHal::disarmHealthCheck() {
+    std::lock_guard<std::mutex> lock(mTimerMutex);
+    mHealthDeadline.reset();
+}
+
+void FocalHal::onHealthCheck() {
+    std::lock_guard<std::mutex> eventLock(mEventMutex);
+    std::lock_guard<std::mutex> lock(mMutex);
+    if (!mDeviceReady || mTrustletFailed) return;
+
+    auto idle = std::chrono::duration_cast<std::chrono::milliseconds>(Clock::now() - mEventStart);
+    if (idle.count() <= kHealthCheckIdleMs && mSettings.healthCheckTiming != 1) return;
+
+    int ret = mTrustlet.checkHealth(0);
+    LOG(INFO) << "health check: " << ret;
+    if (ret == FF_ERR_DEV_DEAD) recoverDevice();
 }
 
 void FocalHal::armLazySave(uint32_t flags) {

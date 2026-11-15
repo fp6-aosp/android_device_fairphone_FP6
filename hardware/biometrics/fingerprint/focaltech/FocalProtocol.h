@@ -93,6 +93,15 @@ enum : int {
     MODE_IDLE_LISTEN = 3,
 };
 
+// Work modes of the sensor (CMD_CONFIG_WORK_MODE).
+enum : int32_t {
+    WORK_MODE_IDLE = 0,
+    WORK_MODE_SCAN = 1,
+    WORK_MODE_ERROR = 2,
+    WORK_MODE_LISTEN = 6,
+    WORK_MODE_RESET = 9,
+};
+
 // Result kinds in EventMsg::kind.
 enum : uint32_t {
     RESULT_NONE = 0,
