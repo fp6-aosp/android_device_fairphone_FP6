@@ -14,7 +14,8 @@
 using ::aidl::android::hardware::biometrics::fingerprint::Fingerprint;
 using ::aidl::android::hardware::biometrics::fingerprint::FingerprintConfig;
 
-int main() {
+int main(int /*argc*/, char* argv[]) {
+    android::base::InitLogging(argv, android::base::LogdLogger(android::base::SYSTEM));
     ABinderProcess_setThreadPoolMaxThreadCount(0);
 
     std::shared_ptr<FingerprintConfig> config = std::make_shared<FingerprintConfig>();

@@ -16,17 +16,24 @@ cc_binary {
         "FingerprintConfig.cpp",
         "LockoutTracker.cpp",
         "Session.cpp",
+        "focaltech/FocalConfig.cpp",
+        "focaltech/FocalDevice.cpp",
+        "focaltech/FocalHal.cpp",
+        "focaltech/FocalTrustlet.cpp",
         "service.cpp",
     ],
     local_include_dirs: [
         "include",
     ],
+    header_libs: [
+        "libhardware_headers",
+    ],
     shared_libs: [
+        "libQSEEComAPI",
         "libbase",
         "libbinder_ndk",
         "libcutils",
-        "libhardware",
-        "libdl",
+        "libjsoncpp",
         "liblog",
         "android.hardware.biometrics.fingerprint-V4-ndk",
         "android.hardware.biometrics.common-V4-ndk",
@@ -37,6 +44,14 @@ cc_binary {
     static_libs: [
         "libandroid.hardware.biometrics.fingerprint.fairphone.Props",
     ],
+    required: ["ff_config.json"],
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "ff_config.json",
+    src: "config/ff_config.json",
+    sub_dir: "focaltech",
     vendor: true,
 }
 

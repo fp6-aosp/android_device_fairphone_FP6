@@ -11,10 +11,10 @@
 #include <aidl/android/hardware/biometrics/fingerprint/ISessionCallback.h>
 #include <android/log.h>
 #include <hardware/fingerprint.h>
-#include <hardware/hardware.h>
 #include <log/log.h>
 
 #include "LockoutTracker.h"
+#include "focaltech/FocalHal.h"
 
 using ::aidl::android::hardware::biometrics::common::ICancellationSignal;
 using ::aidl::android::hardware::biometrics::common::OperationContext;
@@ -27,7 +27,7 @@ void onClientDeath(void* cookie);
 
 class Session : public BnSession {
   public:
-    Session(fingerprint_device_t* device, int userId, std::shared_ptr<ISessionCallback> cb,
+    Session(focaltech::FocalHal* device, int userId, std::shared_ptr<ISessionCallback> cb,
             LockoutTracker lockoutTracker);
     ndk::ScopedAStatus generateChallenge() override;
     ndk::ScopedAStatus revokeChallenge(int64_t challenge) override;
@@ -65,7 +65,7 @@ class Session : public BnSession {
     void notify(const fingerprint_msg_t* msg);
 
   private:
-    fingerprint_device_t* mDevice;
+    focaltech::FocalHal* mDevice;
     LockoutTracker mLockoutTracker;
     bool mClosed = false;
 

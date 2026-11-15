@@ -1,0 +1,755 @@
+{
+    "common": {
+        "configuration_uuid": "4d4d2e71-f848-40d1-8212-42eb0ba21f5e",
+        "image_processing_cols": {
+            "type": "range",
+            "range": [
+                0,
+                512
+            ],
+            "value": 0
+        },
+        "image_processing_rows": {
+            "type": "range",
+            "range": [
+                0,
+                512
+            ],
+            "value": 0
+        },
+        "max_enrolling_fingers": {
+            "type": "range",
+            "range": [
+                0,
+                10
+            ],
+            "value": 5
+        },
+        "max_enrolling_samples": {
+            "type": "range",
+            "range": [
+                0,
+                63
+            ],
+            "value": 20
+        },
+        "enrolling_break_after_n_samples": {
+            "type": "range",
+            "range": [
+                0,
+                63
+            ],
+            "value": 0
+        },
+        "max_pre_processing_rescan_times": {
+            "type": "range",
+            "range": [
+                0,
+                9
+            ],
+            "value": 5
+        },
+        "max_authentication_rescan_times": {
+            "type": "range",
+            "range": [
+                0,
+                15
+            ],
+            "value": 5
+        },
+        "max_authentication_rescan_timing": {
+            "type": "range",
+            "range": [
+                0,
+                9999
+            ],
+            "value": 1000
+        },
+        "property_key": "vendor.fingerprint",
+        "property_value": "focaltech",
+        "trustlet_path": "/vendor/firmware_mnt/image/focal64",
+        "keymaster_path": "/vendor/firmware_mnt/image/keymaster64",
+        "persist_data_home": "/vendor/focaltech",
+        "default_data_home": "/data/vendor/fingerprint/ft9391/Private",
+        "project_data_home": "/data/vendor/fingerprint/ft9391",
+        "dumping_data_home": "/data/vendor/fingerprint/ft9391/Private/dump"
+    },
+    "notification": {
+        "acquired_good": {
+            "type": "range",
+            "range": [
+                0,
+                9999
+            ],
+            "value": 0
+        },
+        "acquired_partial": {
+            "type": "range",
+            "range": [
+                0,
+                9999
+            ],
+            "value": 1
+        },
+        "acquired_insufficient": {
+            "type": "range",
+            "range": [
+                0,
+                9999
+            ],
+            "value": 2
+        },
+        "acquired_imager_dirty": {
+            "type": "range",
+            "range": [
+                0,
+                9999
+            ],
+            "value": 3
+        },
+        "acquired_too_slow": {
+            "type": "range",
+            "range": [
+                0,
+                9999
+            ],
+            "value": 4
+        },
+        "acquired_too_fast": {
+            "type": "range",
+            "range": [
+                0,
+                9999
+            ],
+            "value": 5
+        },
+        "wait_for_enrollment": {
+            "type": "range",
+            "range": [
+                0,
+                9999
+            ],
+            "value": 0
+        },
+        "wait_for_authentication": {
+            "type": "range",
+            "range": [
+                0,
+                9999
+            ],
+            "value": 0
+        },
+        "finger_touched": {
+            "type": "range",
+            "range": [
+                0,
+                9999
+            ],
+            "value": 1102
+        },
+        "finger_left": {
+            "type": "range",
+            "range": [
+                0,
+                9999
+            ],
+            "value": 1103
+        },
+        "finger_touched_by_mistake": {
+            "type": "range",
+            "range": [
+                0,
+                9999
+            ],
+            "value": 0
+        },
+        "finger_leaving_too_fast": {
+            "type": "range",
+            "range": [
+                0,
+                9999
+            ],
+            "value": 5
+        },
+        "image_captured": {
+            "type": "range",
+            "range": [
+                0,
+                9999
+            ],
+            "value": 0
+        },
+        "untrusted_enrollment": {
+            "type": "range",
+            "range": [
+                0,
+                9999
+            ],
+            "value": 1000
+        },
+        "enrolled_finger": {
+            "type": "range",
+            "range": [
+                0,
+                9999
+            ],
+            "value": 1005
+        },
+        "residual_fingerprint": {
+            "type": "range",
+            "range": [
+                0,
+                9999
+            ],
+            "value": 0
+        },
+        "foreign_body_residue": {
+            "type": "range",
+            "range": [
+                0,
+                9999
+            ],
+            "value": 0
+        },
+        "fake_fingerprint": {
+            "type": "range",
+            "range": [
+                0,
+                9999
+            ],
+            "value": 0
+        },
+        "non_fingerprint": {
+            "type": "range",
+            "range": [
+                0,
+                9999
+            ],
+            "value": 1
+        },
+        "rotate_too_less": {
+            "type": "range",
+            "range": [
+                0,
+                9999
+            ],
+            "value": 0
+        },
+        "rotate_too_much": {
+            "type": "range",
+            "range": [
+                0,
+                9999
+            ],
+            "value": 0
+        },
+        "finger_too_dry": {
+            "type": "range",
+            "range": [
+                0,
+                9999
+            ],
+            "value": 0
+        },
+        "finger_too_wet": {
+            "type": "range",
+            "range": [
+                0,
+                9999
+            ],
+            "value": 0
+        },
+        "finger_too_oily": {
+            "type": "range",
+            "range": [
+                0,
+                9999
+            ],
+            "value": 0
+        },
+        "enable_non_fingerprint_filter": false
+    },
+    "driver": {
+        "vendor_info": "",
+        "enable_fasync": false,
+        "enable_spidev": false,
+        "spi_bus_num": {
+            "type": "range",
+            "range": [
+                -1,
+                65535
+            ],
+            "value": 2
+        },
+        "spi_c_s_num": {
+            "type": "range",
+            "range": [
+                -1,
+                65535
+            ],
+            "value": 0
+        },
+        "spi_on_demand": true,
+        "gpio_mosi_pin": {
+            "type": "range",
+            "range": [
+                -1,
+                511
+            ],
+            "value": -1
+        },
+        "gpio_miso_pin": {
+            "type": "range",
+            "range": [
+                -1,
+                511
+            ],
+            "value": -1
+        },
+        "gpio_ck_pin": {
+            "type": "range",
+            "range": [
+                -1,
+                511
+            ],
+            "value": -1
+        },
+        "gpio_cs_pin": {
+            "type": "range",
+            "range": [
+                -1,
+                511
+            ],
+            "value": -1
+        },
+        "gpio_rst_pin": {
+            "type": "range",
+            "range": [
+                -1,
+                511
+            ],
+            "value": -1
+        },
+        "gpio_int_pin": {
+            "type": "range",
+            "range": [
+                -1,
+                511
+            ],
+            "value": -1
+        },
+        "gpio_power_pin": {
+            "type": "range",
+            "range": [
+                -1,
+                511
+            ],
+            "value": -1
+        },
+        "gpio_iovcc_pin": {
+            "type": "range",
+            "range": [
+                -1,
+                511
+            ],
+            "value": -1
+        },
+        "keycode_nav_left": {
+            "type": "range",
+            "range": [
+                0,
+                511
+            ],
+            "value": 0
+        },
+        "keycode_nav_right": {
+            "type": "range",
+            "range": [
+                0,
+                511
+            ],
+            "value": 0
+        },
+        "keycode_nav_up": {
+            "type": "range",
+            "range": [
+                0,
+                511
+            ],
+            "value": 0
+        },
+        "keycode_nav_down": {
+            "type": "range",
+            "range": [
+                0,
+                511
+            ],
+            "value": 0
+        },
+        "keycode_click": {
+            "type": "range",
+            "range": [
+                0,
+                511
+            ],
+            "value": 158
+        },
+        "keycode_double_click": {
+            "type": "range",
+            "range": [
+                0,
+                511
+            ],
+            "value": 28
+        },
+        "keycode_long_press": {
+            "type": "range",
+            "range": [
+                0,
+                511
+            ],
+            "value": 0
+        },
+        "keycode_simulation": {
+            "type": "range",
+            "range": [
+                0,
+                511
+            ],
+            "value": 584
+        }
+    },
+    "device": {
+        "preferred_device_id": "0x9391",
+        "enable_re_power_b4_probing": true,
+        "enable_hw_reset_b4_scanning": false,
+        "enable_prev_hw_process": true,
+        "enable_post_hw_process": true,
+        "enable_curved_surface_fingerprint": false,
+        "vio_is_1p8": false,
+        "spi_default_bps": {
+            "type": "range",
+            "range": [
+                32000,
+                64000000
+            ],
+            "value": 4800000
+        },
+        "spi_capture_bps": {
+            "type": "range",
+            "range": [
+                32000,
+                64000000
+            ],
+            "value": 7500000
+        },
+        "spi_mode": {
+            "type": "enum",
+            "value": 0,
+            "names": [
+                "mode 0 (CPOL=0, CPHA=0)",
+                "mode 1 (CPOL=0, CPHA=1)",
+                "mode 2 (CPOL=1, CPHA=0)",
+                "mode 3 (CPOL=1, CPHA=1)"
+            ]
+        },
+        "image_acquisition_mode": {
+            "type": "enum",
+            "value": 2,
+            "names": [
+                "auto",
+                "interrupt-driven",
+                "polling-driven"
+            ]
+        },
+        "enroll_type": {
+            "type": "enum",
+            "value": 0,
+            "names": [
+                "click",
+                "x-click",
+                "slide",
+                "combined"
+            ]
+        },
+        "sliding_enroll_burst_num": {
+            "type": "range",
+            "range": [
+                2,
+                15
+            ],
+            "value": 5
+        },
+        "rotation": {
+            "type": "range",
+            "range": [
+                0,
+                359
+            ],
+            "value": 0
+        },
+        "gesturing_mode": {
+            "type": "enum",
+            "value": 0,
+            "names": [
+                "none",
+                "navigation only",
+                "nav + key-simulation",
+                "key-simulation only",
+                "key-event only"
+            ]
+        },
+        "dual_click_interval": {
+            "type": "range",
+            "range": [
+                100,
+                550
+            ],
+            "value": 500
+        },
+        "long_press_duration": {
+            "type": "range",
+            "range": [
+                600,
+                1500
+            ],
+            "value": 800
+        }
+    },
+    "extension": {
+        "enable_udf_sliding_rescan": true,
+        "enable_guidance_enrolling": false,
+        "health_check_timeout": {
+            "type": "range",
+            "range": [
+                100,
+                10000
+            ],
+            "value": 4000
+        },
+        "health_check_timing": {
+            "type": "enum",
+            "value": 1,
+            "names": [
+                "disabled",
+                "relight",
+                "interval",
+                "screen on || off",
+                "interval && relight"
+            ]
+        },
+        "enable_cpuset_boosting": false,
+        "enable_cpufreq_scaling": true,
+        "min_cpufreq_scaling_range": {
+            "type": "range",
+            "range": [
+                1000,
+                1000
+            ],
+            "value": 1000
+        },
+        "max_cpufreq_scaling_range": {
+            "type": "range",
+            "range": [
+                1000,
+                1500
+            ],
+            "value": 1000
+        },
+        "enable_power_key_solution": true,
+        "enable_fast_screen_unlock": true,
+        "enable_vndbinder_service": true
+    },
+    "trustlet": {
+        "enable_trusted_enrollment": true,
+        "enable_authenticate_token": true,
+        "enable_fingerprint_payment": true,
+        "enable_secret_data_backup": true
+    },
+    "algorithm": {
+        "enable_filter_non_fp_image": true,
+        "max_extral_enroll_too_slow": {
+            "type": "range",
+            "range": [
+                -1,
+                99
+            ],
+            "value": 10
+        },
+        "max_extral_enroll_low_quality": {
+            "type": "range",
+            "range": [
+                -1,
+                99
+            ],
+            "value": 16
+        },
+        "max_sub_template_num": {
+            "type": "range",
+            "range": [
+                48,
+                99
+            ],
+            "value": 96
+        },
+        "min_enrolling_quality_threshold": {
+            "type": "range",
+            "range": [
+                0,
+                100
+            ],
+            "value": 20
+        },
+        "min_enrolling_coverage_threshold": {
+            "type": "range",
+            "range": [
+                0,
+                100
+            ],
+            "value": 70
+        },
+        "enrolling_overlap_intervals": "0x54A0",
+        "enroll_overlap_compare_cnts": {
+            "type": "range",
+            "range": [
+                0,
+                100
+            ],
+            "value": 30
+        },
+        "enroll_overlap_min_area": {
+            "type": "range",
+            "range": [
+                0,
+                100
+            ],
+            "value": 60
+        },
+        "enroll_overlap_max_area": {
+            "type": "range",
+            "range": [
+                0,
+                100
+            ],
+            "value": 80
+        },
+        "enroll_overlap_ang": {
+            "type": "range",
+            "range": [
+                0,
+                360
+            ],
+            "value": 0
+        },
+        "enable_duplicated_finger_checking": true,
+        "enable_fake_recognition": false,
+        "min_identify_quality_threshold": {
+            "type": "range",
+            "range": [
+                0,
+                100
+            ],
+            "value": 50
+        },
+        "min_identify_coverage_threshold": {
+            "type": "range",
+            "range": [
+                0,
+                100
+            ],
+            "value": 70
+        },
+        "enable_template_learning": true,
+        "template_update_threshold": {
+            "type": "range",
+            "range": [
+                0,
+                100
+            ],
+            "value": 50
+        }
+    },
+    "chips": {
+        "enable_register_check": false
+    },
+    "diagnosis": {
+        "enable_logcat_trustlet": true,
+        "enable_logcat_driver": false,
+        "enable_logcat_spi_data": false,
+        "enable_logcat_more_data": false,
+        "enable_trustlet_native_log": true,
+        "framework_log_level": {
+            "type": "enum",
+            "value": 2,
+            "names": [
+                "all",
+                "verbose",
+                "debug",
+                "info",
+                "warning",
+                "error",
+                "disabled"
+            ]
+        },
+        "enable_algorithm_log": true,
+        "algorithm_log_level": {
+            "type": "enum",
+            "value": 4,
+            "names": [
+                "all",
+                "verbose",
+                "debug",
+                "info",
+                "warning",
+                "error",
+                "disabled"
+            ]
+        },
+        "enable_firmware_log": true,
+        "firmware_log_level": {
+            "type": "enum",
+            "value": 3,
+            "names": [
+                "all",
+                "verbose",
+                "debug",
+                "info",
+                "warning",
+                "error",
+                "disabled"
+            ]
+        },
+        "enable_statistics": false,
+        "enable_dump_diag_data": false,
+        "enable_dump_auto_clean": false,
+        "max_dumping_data_size": {
+            "type": "range",
+            "range": [
+                50,
+                2048
+            ],
+            "value": 2048
+        },
+        "max_dumping_count": {
+            "type": "range",
+            "range": [
+                1,
+                999
+            ],
+            "value": 10
+        },
+        "dumping_data_archive_mode": {
+            "type": "enum",
+            "value": 3,
+            "names": [
+                "ultra",
+                "fast",
+                "store",
+                "disabled"
+            ]
+        },
+        "enable_archive_encryption": false,
+        "encryption_password": "xiQbyc92Ca@La",
+        "enable_dump_extra_data": false
+    }
+}

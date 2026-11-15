@@ -40,4 +40,5 @@ allow hal_fingerprint_default init:unix_stream_socket connectto;
 
 allow hal_fingerprint_default vendor_dmabuf_qseecom_heap_device:chr_file { read write open ioctl };
 allow hal_fingerprint_default vendor_dmabuf_qseecom_ta_heap_device:chr_file { open read write ioctl};
+allow hal_fingerprint_default vendor_configs_file:file r_file_perms;
 # ------------------- focaltech fingerprint end ---------------------

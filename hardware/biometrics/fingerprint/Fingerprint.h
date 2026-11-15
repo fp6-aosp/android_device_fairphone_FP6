@@ -9,9 +9,12 @@
 
 #include <aidl/android/hardware/biometrics/fingerprint/BnFingerprint.h>
 
+#include <memory>
+
 #include "FingerprintConfig.h"
 #include "LockoutTracker.h"
 #include "Session.h"
+#include "focaltech/FocalHal.h"
 
 using ::aidl::android::hardware::biometrics::fingerprint::FingerprintSensorType;
 using ::aidl::android::hardware::biometrics::fingerprint::ISession;
@@ -31,16 +34,15 @@ class Fingerprint : public BnFingerprint {
                                      std::shared_ptr<ISession>* out) override;
 
   private:
-    fingerprint_device_t* openHal(void);
     std::vector<SensorLocation> getSensorLocations();
-    static void notify(const fingerprint_msg_t* msg);
+    static void notify(const fingerprint_msg_t& msg);
 
     std::shared_ptr<FingerprintConfig> mConfig;
     std::shared_ptr<Session> mSession;
     LockoutTracker mLockoutTracker;
     FingerprintSensorType mSensorType;
 
-    fingerprint_device_t* mDevice;
+    std::unique_ptr<focaltech::FocalHal> mDevice;
 };
 
 }  // namespace aidl::android::hardware::biometrics::fingerprint
