@@ -68,10 +68,12 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@7.1-impl \
     android.hardware.audio.effect@7.0-impl \
     android.hardware.audio.service \
+    android.hardware.bluetooth.audio-impl-qti \
     android.hardware.soundtrigger@2.3-impl
 
 PRODUCT_PACKAGES += \
     audio.bluetooth.default \
+    audio.bluetooth_qti.default \
     audio.primary.volcano \
     audio.r_submix.default \
     audio.usb.default \
@@ -81,6 +83,7 @@ PRODUCT_PACKAGES += \
     audioadsprpcd
 
 PRODUCT_PACKAGES += \
+    btaudio_offload_if \
     lib_bt_aptx \
     lib_bt_ble \
     lib_bt_bundle \
