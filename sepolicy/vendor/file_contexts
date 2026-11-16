@@ -43,6 +43,9 @@
 
 /mnt/vendor/persist/trace_info(/.*)?                    u:object_r:vendor_persist_trace_param_file:s0
 
+# Bluetooth
+/vendor/bin/hw/android\.hardware\.bluetooth-service-qti    u:object_r:hal_bluetooth_default_exec:s0
+
 # emkit
 /sys/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:49476/model                            u:object_r:vendor_sysfs_info:s0
 /sys/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:49476/vendor                           u:object_r:vendor_sysfs_info:s0

@@ -1,3 +1,6 @@
+# Bluetooth
+vendor.qti.hardware.bluetooth_sar.IBluetoothSar/default    u:object_r:hal_bluetooth_service:s0
+
 # Camera
 vendor.tcl.camera.algoservice.ITctCameraAlgoService/default    u:object_r:vendor_tct_camera_algo_service:s0
 

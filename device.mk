@@ -132,6 +132,10 @@ PRODUCT_PACKAGES += \
     android.hardware.boot-service.qti \
     android.hardware.boot-service.qti.recovery
 
+# Bluetooth
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth-service-qti
+
 # Camera
 PRODUCT_PACKAGES += \
     vendor.qti.camera.provider-service_64
